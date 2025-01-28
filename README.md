@@ -40,11 +40,11 @@ Un tournoi opposera 8 à 16 joueurs, toujours dans le format d'un affrontement e
 2. Se placer dans le répertoire database et executer :<br>
 **Pour Bash**
     ```
-    > sqlite3 datababse.db < init_user_table
+    > sqlite3 database.db < init_user_table
     ```
     **Pour Windows**
     ```
-    > sqlite3 datababse.db
+    > sqlite3 database.db
     ``````
     Executer directement cette commande dans le programme sqlite
     ```sql
