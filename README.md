@@ -1,4 +1,4 @@
-# Proket K
+# Projet K
 
 ## Descriptif du projet 
 
