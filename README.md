@@ -11,12 +11,12 @@ Un tournoi opposera 8 à 16 joueurs, toujours dans le format d'un affrontement e
 
 1. Python 3.10 ou plus : [installation](https://www.python.org/downloads/)
 2. Flask : [installation](#installation--usage)
-3. sqlite3 : [installation (site de sqlite)](https://www.sqlite.org/s)
+3. sqlite3 : [installation (site de sqlite)](https://www.sqlite.org/)
 
 ## Installation & usage
 1. Installer Flask & Sqlite3 : [guide d'installation](https://flask.palletsprojects.com/en/stable/installation/)
     ```
-    > pip install Flask
+    > pip install flask
     > pip install sqlite3
     ```
 
