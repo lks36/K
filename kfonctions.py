@@ -13,10 +13,10 @@ def verifier_login()->bool:
         sqlreq = f"SELECT * FROM users WHERE email = '{request.form['email']}'"
         res = cur.execute(sqlreq)
         #Attention : Récuperer le tuple de fetchone dans une variable
-        tuple = res.fetchone()
-        email = tuple[2]
-        password = tuple[3]
-        print(f"tuple : {tuple}")
+        res_tuple = res.fetchone()
+        email = res_tuple[2]
+        password = res_tuple[3]
+        print(f"tuple : {res_tuple}")
         if email == None:
             # Cette adresse n'existe pas
             return False
