@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div>
+            <ul>
+                <li><a href="">Acceuil</a></li>
+                <li><a href="">Comment jouer ?</a></li>
+                <li><a href="leaderboard">Leaderboard</a></li>
+                <li><a href="connexion">Connexion</a></li>
+            
+                
+            </ul>
+        </div>
+        <div class="profile">
+            <ul>
+                <li class="profile_button"><a href="profile.php">Profil</a></li>
+                
+                
+            </ul>
+        </div>
+
+    </nav>
+
+    <main>
+        {% if session['email'] %}
+            <p> Email détecté : {{ session['email'] }}</p>
+        {% endif %}
+        
+    </main>
+
+</body>
+
+
+
+</html>

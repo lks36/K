@@ -1,45 +1,10 @@
-<?php
-// Connectez-vous à la base de données SQLite
-try {
-    $db = new PDO('sqlite:./database/database.db'); // Assurez-vous que le chemin est correct
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
-
-    
-    $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && $password === $user['password']) {
-        sleep(1);
-        // Redirigez ou lancez une session ici
-        session_start();
-        $_SESSION['user'] = $user;
-        header('Location: index.php');
-        exit;
-    } else {
-        echo '<script>alert("Utilisateur introuvable ou mot de passe incorrect.")</script>';
-    }
-}
-?>
-
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Accueil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 
 
@@ -49,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <nav class="navbar">
         <ul>
-            <li><a href="index.php">Acceuil</a></li>
+            <li><a href="/">Acceuil</a></li>
             <li><a href="">Comment jouer ?</a></li>
             <li><a href="leaderboard.php">Leaderboard</a></li>
         </ul>
