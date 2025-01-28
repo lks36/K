@@ -20,7 +20,11 @@ def connexion():
             session['email'] = request.form['email']
 
             return render_template("./index.html")
-    return render_template("./connexion.html")
+        else:
+            session['email'] = None
+            return render_template("./index.html")
+    else:
+        return render_template("./connexion.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
