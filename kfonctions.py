@@ -27,6 +27,6 @@ def verifier_login()->bool:
                 return False
     except Exception as erreur:
         print(erreur)
-        return "<p> Erreur lors de la connexion à la base de données <p>"
+        return False
     finally:
         con.close()
