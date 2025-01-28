@@ -18,7 +18,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="index.php">Acceuil</a></li>
-            <li><a href="">Comment jouer ?</a></li>
+            <li><a href="Regles.php">Comment jouer ?</a></li>
             <li><a href="leaderboard.php">Leaderboard</a></li>
         </ul>
 
