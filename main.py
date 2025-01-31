@@ -25,6 +25,20 @@ def connexion():
             return render_template("./index.html")
     else:
         return render_template("./connexion.html")
+    
+@app.route("/leaderboard")
+def leaderboard():
+    leaderboard_list = get_leaderboard()
+    return render_template("./leaderboard.html", leaderboard=leaderboard_list, iter_liste=range(len(leaderboard_list)))
+
+@app.route("/disconnect")
+def disconnect():
+    session['email'] = None
+    return render_template("./disconnect.html")
+
+@app.route("/howtoplay")
+def howtoplay():
+    return render_template("./regles.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
