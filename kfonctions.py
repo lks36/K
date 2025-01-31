@@ -2,9 +2,37 @@ from flask import Flask, render_template, request, session
 import sqlite3
 
 
-def verifier_login()->bool:
+def get_leaderboard()->list[tuple]:
+    """Récupérer le leaderboard
+
+    Returns :
+        list[tuple]: results from the SQL request in the leaderboard table
+
     """
-    Verifie le login de l'utilisateur (request.form['email'], request.form['password'])
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        # Problème : Injection SQL possible (?)
+        print("OK")
+        sqlreq = f"SELECT score, username FROM leaderboard JOIN users ON users.id = leaderboard.id ORDER BY score ASC"
+        res = cur.execute(sqlreq)
+        print("OK")
+        reslist = res.fetchall()
+        print("OK")
+        con.close()
+        print("test", reslist)
+        return reslist
+
+    except Exception as erreur:
+        print("Erreur dans get_leaderboard() :", erreur)
+        return []
+
+
+def verifier_login()->bool:
+    """Verifie le login de l'utilisateur (request.form['email'], request.form['password'])
+    
+    Returns : 
+    
     """
     try:
         con = sqlite3.connect("./database/database.db")
@@ -26,7 +54,7 @@ def verifier_login()->bool:
             else:
                 return False
     except Exception as erreur:
-        print(erreur)
+        print("Erreur dans verifier_login() :", erreur)
         return False
     finally:
         con.close()

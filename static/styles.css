@@ -12,7 +12,7 @@ h1{
 
 .navbar{
     display: flex;
-    
+    background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 }
 
@@ -155,4 +155,19 @@ h1{
 
 .profile{
   margin-left: 63%;
+}
+
+.leaderboard{
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 45%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+.leaderboard_body{
+  background-image: url("leaderboard_background.png");
+  background-size: cover;
 }
