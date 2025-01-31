@@ -13,12 +13,9 @@ def get_leaderboard()->list[tuple]:
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
         # Problème : Injection SQL possible (?)
-        print("OK")
         sqlreq = f"SELECT score, username FROM leaderboard JOIN users ON users.id = leaderboard.id ORDER BY score ASC"
         res = cur.execute(sqlreq)
-        print("OK")
         reslist = res.fetchall()
-        print("OK")
         con.close()
         print("test", reslist)
         return reslist
@@ -32,6 +29,7 @@ def verifier_login()->bool:
     """Verifie le login de l'utilisateur (request.form['email'], request.form['password'])
     
     Returns : 
+        bool: true if the email and the password are correct
     
     """
     try:
