@@ -11,7 +11,31 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <div>
+            <ul>
+                <li><a href="">Acceuil</a></li>
+                <li><a href="howtoplay">Comment jouer ?</a></li>
+                <li><a href="leaderboard">Leaderboard</a></li>
+                {% if session['email'] %}
+                    <li><a href="disconnect">Deconnexion</a></li>
+                {% else %}
+                    <li><a href="connexion">Connexion</a></li>
+                {% endif %}
+            
+                
+            </ul>
+        </div>
+        <div class="profile">
+            <ul>
+                {% if session['email'] %}  
+                    <li class="profile_button"><a href="profile.php">Profil</a></li>
+                {% endif %}
+                
+            </ul>
+        </div>
 
+    </nav>
     <header>
     <h1>Qu'est ce que K ?</h1>
     <section>
