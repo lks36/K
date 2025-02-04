@@ -5,14 +5,17 @@
     <title>Accueil</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <nav class="navbar">
-        <div>
+        <section class="left_buttons">
             <ul>
                 <li><a href="">Acceuil</a></li>
                 <li><a href="howtoplay">Comment jouer ?</a></li>
+                <li><a href="startplaying">Lancer une partie</a></li>
                 <li><a href="leaderboard">Leaderboard</a></li>
                 {% if session['email'] %}
                     <li><a href="disconnect">Deconnexion</a></li>
@@ -22,15 +25,15 @@
             
                 
             </ul>
-        </div>
-        <div class="profile">
+        </section>
+        <section class="profile">
             <ul>
                 {% if session['email'] %}  
                     <li class="profile_button"><a href="profile.php">Profil</a></li>
                 {% endif %}
                 
             </ul>
-        </div>
+        </section>
 
     </nav>
 

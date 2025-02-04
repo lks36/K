@@ -1,0 +1,19 @@
+@import url("styles.css");
+
+
+h1{
+    text-align: center;
+    font-family: Montserrat;
+}
+.createclassic{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    justify-content: center;
+}
+
+input{
+    width: 100%;
+}

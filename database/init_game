@@ -1,0 +1,8 @@
+CREATE TABLE classic (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    host TEXT,
+    name TEXT,
+    status TEXT NOT NULL,
+    maxplayers INT,
+    creation TIMESTAMP
+);
