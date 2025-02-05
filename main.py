@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect, flash
 import sqlite3
 from kfonctions import *
 app = Flask(__name__)

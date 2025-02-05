@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, redirect, session, flash
 import sqlite3
 
 
@@ -75,7 +75,8 @@ def creation(username,email,password):
         cur.execute(sqlreq, (username, email, password))
         con.commit()
 
-        return render_template("./connexion.html", info="create_succes")
+        flash("Compte crée avec succès !","success")
+        return redirect("./connexion")
     
     except Exception as erreur:
         print("Erreur dans creation() :", erreur)
