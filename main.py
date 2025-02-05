@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, jsonify
 import time
 import sqlite3
 from kfonctions import *
@@ -70,6 +70,27 @@ def createclassic():
 def classic_games():
     liste_parties = get_classic_games()
     return render_template("./classic_games.html", gamelist=liste_parties, iter_liste=range(len(liste_parties)))
+
+@app.route("/classic_queue", methods=['GET', 'POST'])
+def classic_queue():
+    if not verifie_connexion():
+            return redirect("./connexion")
+    liste_parties = get_classic_games()
+    return render_template("./classic_queue.html", gamelist=liste_parties, iter_liste=range(len(liste_parties)))
+
+
+@app.route("/check_game")
+def check_game():
+    """Envoie les données d'une partie dès qu'elle est trouvée au js de la page classicqueue"""
+
+    #récuperer la liste des parties
+    gamelist = get_classic_games()
+    #choisir une partie
+    found = False
+    for id, host, name, status, maxplayers, creation in gamelist:
+        if status == "en attente":
+            found = True
+    return jsonify({"found": found, "id": id, "host": host, "name":name, "maxplayers":maxplayers})
 
 if __name__ == '__main__':
     app.run(debug=True)

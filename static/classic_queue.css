@@ -1,0 +1,19 @@
+@import url("styles.css");
+
+body{
+    height: 100%;
+}
+main{
+    height: 100%;
+    background-color: rgb(86, 86, 165);
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    font-family: "Montserrat";
+    margin: 10%;
+    height: 10%;
+    display: block;
+    justify-content: center;
+}
