@@ -56,3 +56,29 @@ def verifier_login()->bool:
         return False
     finally:
         con.close()
+
+def creation(username,email,password):
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        # Problème : Injection SQL possible (?)
+        sqlreq = "SELECT * FROM users WHERE email = ? OR username = ?"
+        cur.execute(sqlreq, (email, username))
+        existing_user = cur.fetchone()
+
+        if existing_user:
+            # si une user avec le meme pseudo ou email
+            return render_template("create.html", error="Exception_Deja")
+
+        # On ajouter le nouvel user a la database
+        sqlreq = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)"
+        cur.execute(sqlreq, (username, email, password))
+        con.commit()
+
+        return render_template("./connexion.html", info="create_succes")
+    
+    except Exception as erreur:
+        print("Erreur dans creation() :", erreur)
+        return render_template("create.html", error=erreur)
+    finally:
+        con.close()
