@@ -7,27 +7,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 
-<body class="leaderboard_body">
+<body>
     <nav class="navbar">
         <ul>
             <li><a href="/">Acceuil</a></li>
-            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="">Comment jouer ?</a></li>
             <li><a href="leaderboard">Leaderboard</a></li>
         </ul>
 
     </nav>
 
     <main>
-        <div class="leaderboard">
-            <h2 class="leaderboard_title"> Leaderboard </h2>
+        <div>
+            <h2> Parties Disponibles </h2>
             {% for i in iter_liste %}
-                <p> Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+                <p> Host : {{gamelist[i][1]}}, Nom : {{gamelist[i][2]}}, Maxjoueurs : {{gamelist[i][4]}}, Status : {{gamelist[i][3]}}</p>
             {% endfor %}
         </div>
     </main>
 
 </body>
-
-
-
-</html>

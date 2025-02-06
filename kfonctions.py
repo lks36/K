@@ -1,5 +1,51 @@
 from flask import Flask, render_template, request, session
+import time
 import sqlite3
+
+
+def get_classic_games()->list[tuple]:
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        sqlreq = f"SELECT * FROM classic"
+        res = cur.execute(sqlreq)
+        reslist = res.fetchall()
+        con.close()
+        return reslist
+
+    except Exception as erreur:
+        print("Erreur dans get_classic_games() :", erreur)
+        return []
+
+def verifie_connexion():
+    try:
+        if session is None:
+            return False
+        if session['username'] == None:
+            return False
+        if session['email'] == None:
+            return False
+        return True
+    except:
+        return False
+
+def creer_partie_classique(nom:str, host:str, maxplayer:int)->bool:
+    """Créer une partie classique dans la base de données
+
+    Returns :
+        bool: true if the game was successfully created
+    """
+    print(host, nom, maxplayer)
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        ts = int(round(time.time(), 0))
+        cur.execute(f"INSERT INTO classic ('host', 'name', 'status', 'maxplayers', 'creation') VALUES ('{host}', '{nom}', 'en attente', {maxplayer}, {ts})")
+        con.commit()
+        return True
+    except Exception as erreur:
+        print("Erreur dans creer_partie_classique : ", erreur)
+        return False
 
 
 def get_leaderboard()->list[tuple]:
@@ -48,6 +94,7 @@ def verifier_login()->bool:
             return False
         else:
             if password == request.form['password']:
+                session['username'] = res_tuple[1]
                 return True
             else:
                 return False
