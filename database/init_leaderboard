@@ -1,6 +1,5 @@
 CREATE TABLE leaderboard (
     id INT PRIMARY KEY,
     score TEXT NOT NULL,
-    FOREIGN KEY (id) REFERENCES users(id)
-    
+    FOREIGN KEY (id) REFERENCES users(id);
 );
