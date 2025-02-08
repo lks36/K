@@ -15,8 +15,8 @@
     <nav class="navbar">
         <ul>
             <li><a href="/">Acceuil</a></li>
-            <li><a href="">Comment jouer ?</a></li>
-            <li><a href="leaderboard.php">Leaderboard</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
         </ul>
 
     </nav>
@@ -36,12 +36,20 @@
                         <input type="password" id="password" name="password" class="input" autocomplete="off" placeholder="Entrez votre mot de passe" required>
                     </div>
                         <span class="page-link-label">Mot de passe oublié ?</span>
-                    <div>
-                    
-                    </div>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                {% if category == "success" %}
+                                    <div class="create_succes">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                     <p></p>
                         <button type="submit" class="form-btn">Se connecter</button>
-                    <div><p class="sign-up-label">Pas de compte ? <span class="sign-up-link">S'inscrire</span></p></div>
+                    <div><p class="sign-up-label">Pas de compte ? <span class="sign-up-link"><a href="create">S'inscrire</a></span></p></div>
                     
                 </form>
             </div>

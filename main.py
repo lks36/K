@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, jsonify
+from flask import Flask, render_template, request, session, redirect, jsonify, flash
 import time
 import sqlite3
 from kfonctions import *
@@ -91,6 +91,20 @@ def check_game():
         if status == "en attente":
             found = True
     return jsonify({"found": found, "id": id, "host": host, "name":name, "maxplayers":maxplayers})
+
+@app.route("/create", methods=['GET', 'POST'])
+def create():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if not username or not email or not password:
+            return render_template("create.html", error='Exception_Vide')
+        else:
+            return creation(username, email, password)
+    else:
+        return render_template("./create.html", error=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

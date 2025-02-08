@@ -1,0 +1,53 @@
+
+@import url("styles.css");
+
+.create_title {
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin: 10px 0 30px 0;
+    font-size: 25px;
+    font-weight: 800;
+  }
+  .create{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30%;
+    padding-right: 30%;
+    text-align: center;
+  }
+  .existant, .non_existant {
+    text-align: center;
+  }
+  
+  .create_form{
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .create {
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 7%;
+    display: flex;
+    justify-content: center;
+  }
+  .create_box{
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  }
+  .create_error{
+    font-size: 10px;
+    color: red;
+  }
+
+  .create_succes{
+    font-size: 10px;
+    color: blue;
+  }
