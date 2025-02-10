@@ -1,0 +1,43 @@
+@import url("styles.css");
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 20px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.stat-card {
+    background-color: #0adb37;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.profile-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-container img {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 15px; 
+}

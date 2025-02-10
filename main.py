@@ -43,6 +43,10 @@ def disconnect():
 def howtoplay():
     return render_template("./regles.html")
 
+@app.route("/profil")
+def profil():
+    return render_template("./profil.html")
+
 @app.route("/startplaying")
 def startplaying():
     return render_template("./startplaying.html")
