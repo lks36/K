@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+
+
+<body>
+    
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+
+
+    <main class="login_box">
+        <div class="login">
+            
+
+            <div class="connexion">
+            <p class="title">Connexion à K</p>
+                <form method="post" class="login_form">
+                    <div class="login_form">
+                        <input type="email" id="email" name="email" class="input" autocomplete="off" placeholder="Entrez votre email" required>
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" class="input" autocomplete="off" placeholder="Entrez votre mot de passe" required>
+                    </div>
+                        <span class="page-link-label">Mot de passe oublié ?</span>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                {% if category == "success" %}
+                                    <div class="create_succes">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <p></p>
+                        <button type="submit" class="form-btn">Se connecter</button>
+                    <div><p class="sign-up-label">Pas de compte ? <span class="sign-up-link"><a href="create">S'inscrire</a></span></p></div>
+                    
+                </form>
+            </div>
+        </div>
+        
+    </main>
+
+</body>

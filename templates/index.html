@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <section class="left_buttons">
+            <ul>
+                <li><a href="">Acceuil</a></li>
+                <li><a href="howtoplay">Comment jouer ?</a></li>
+                <li><a href="startplaying">Lancer une partie</a></li>
+                <li><a href="leaderboard">Leaderboard</a></li>
+                {% if session['email'] %}
+                    <li><a href="disconnect">Deconnexion</a></li>
+                {% else %}
+                    <li><a href="connexion">Connexion</a></li>
+                {% endif %}
+            
+                
+            </ul>
+        </section>
+        <section class="profile">
+            <ul>
+                {% if session['email'] %}  
+                    <li class="profile_button"><a href="profile.php">Profil</a></li>
+                {% endif %}
+                
+            </ul>
+        </section>
+
+    </nav>
+
+    <main>
+        {% if session['email'] %}
+            <p> Email détecté : {{ session['email'] }}</p>
+        {% endif %}
+        
+    </main>
+
+</body>
+
+
+
+</html>

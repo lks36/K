@@ -1,0 +1,66 @@
+
+@import url("styles.css");
+
+main{
+    height: 100%;
+}
+
+.how_to_play{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+.create a{
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.create a{
+    color: #3a187a;
+    line-height: 2;
+    position: relative;
+ }
+.create a:hover::before {
+    width: 100%;
+    left: 0;
+}
+.create a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
+  }
+
+.rejoindre{
+    color: rgb(86, 22, 165);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+.classique{
+    width: 50%;
+    background-color: rgb(110, 255, 154);
+    height: 100%;
+    
+}
+
+.tournoi{
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 127, 191);
+    color: beige;
+}
+
+.gamemode{
+    margin-top: 40%;
+    text-align: center;
+
+}
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+
+    <main>
+        <div>
+            <h2> Parties Disponibles </h2>
+            {% for i in iter_liste %}
+                <p> Host : {{gamelist[i][1]}}, Nom : {{gamelist[i][2]}}, Maxjoueurs : {{gamelist[i][4]}}, Status : {{gamelist[i][3]}}</p>
+            {% endfor %}
+        </div>
+    </main>
+
+</body>

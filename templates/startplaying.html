@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='startplayingstyle.css')}}">
+</head>
+
+<body class="startplay_body">
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+
+    <main>
+        <div class="how_to_play">
+            <section class="classique">
+                
+                <div class="gamemode">
+                    <div class="create"><a href="classic_queue">Jouer en mode Classique 🎮</a></div>
+                    <p>Mode de jeu Classique où deux équipes s'affrontent pour montrer leur talent</p>
+                    <p> ----------------- </p>
+                    <a class="rejoindre" href="classic_games">rejoindre une partie</a><span></span>
+                    <p></p>
+                    <a class="rejoindre" href="createclassic">créer une partie</a><span></span>
+                </div>
+            
+            </section>
+            <section class="tournoi">
+                
+                <div class="gamemode">
+                    <div class="create"><a href="">Jouer en mode Tournoi 🏆</a></div>
+                    <p>Participe à un tournoi pour montrer que tu es le meilleur</p>
+                </div>
+            
+            </section>
+        </div>
+    </main>
+
+</body>
+
+
+
+</html>

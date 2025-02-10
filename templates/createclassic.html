@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='createclassic.css')}}">
+</head>
+
+<body class="startplay_body">
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+
+    <main>
+    <h1>Créer une partie</h1>
+    <div class="createclassic">
+        <form method="post" class="classic_creation_form">
+            <div>
+                <input type="text" id="name" name="name" class="input" autocomplete="off" placeholder="Nom de la partie" required>
+            </div>
+            <div>
+                <input type="number" id="maxplayer" name="maxplayer" class="input" autocomplete="off"  min="2" max="10" placeholder="Nombre de joueurs" required>
+            </div>
+            <p></p>
+            <button type="submit" class="form-btn">Créer une partie</button>
+            
+        </form>
+    </div>
+    </main>
+
+</body>
+
+
+
+</html>

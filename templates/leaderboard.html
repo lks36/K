@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Accueil</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body class="leaderboard_body">
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+
+    <main>
+        <div class="leaderboard">
+            <h2 class="leaderboard_title"> Leaderboard </h2>
+            {% for i in iter_liste %}
+                <p> Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+            {% endfor %}
+        </div>
+    </main>
+
+</body>
+
+
+
+</html>

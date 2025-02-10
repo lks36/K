@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+__pycache__
+=======
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Ignorer les fichiers d'environnement virtuel
+venv/
+.env
+
+# Ignorer les fichiers de logs
+logs/
+*.log
+
+# Ignorer les fichiers de base de données temporaires
+*.sqlite3
+>>>>>>> 3d659d8ae81e7877a6597277745967acbbde8bb5

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creation de Compte</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles_create.css')}}">
+</head>
+
+
+
+<body>
+    
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="howtoplay">Comment jouer ?</a></li>
+            <li><a href="leaderboard">Leaderboard</a></li>
+        </ul>
+
+    </nav>
+    
+    <main class="create_box">
+        <div class="create">
+            
+
+            <div class="create_title">
+            <p class="create_title">Création de Compte</p>
+                <form method="post" class="create_form">
+                    <div class="create_form">
+                        <input type="username" id="username" name="username" class="input" autocomplete="off" placeholder="Entrez pseudo" required>
+                    </div>
+                    <div class="create_form">
+                        <input type="email" id="email" name="email" class="input" autocomplete="off" placeholder="Entrez votre email" required>
+                    </div>
+                    <div class="create_form">
+                        <input type="password" id="password" name="password" class="input" autocomplete="off" placeholder="Entrez votre mot de passe" required>
+                    </div>
+                    <div>
+                    {% if error == "Exception_Vide": %}
+                    <p class="create_error">Veuillez completer toutes les cases</p>
+                    {% endif %}
+                    {% if error == "Exception_Deja": %}
+                    <p class="create_error">Pseudo/email déjà utilisé</p>
+                    {% endif %}
+                    </div>
+                    <p></p>
+                        <button type="submit" class="form-btn">Créer</button>
+                    <div><p class="sign-up-label">Deja un compte ? <span class="sign-up-link"><a href="connexion">Se Connecter</a></span></p></div>
+                    
+                </form>
+            </div>
+        </div>
+
+            
+        
+    </main>
+
+</body>
