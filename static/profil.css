@@ -1,5 +1,9 @@
 @import url("styles.css");
 
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .stats-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
