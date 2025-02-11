@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Joueur</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='profil.css')}}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div>
+            <ul>
+                <li><a href="/">Acceuil</a></li>
+                <li><a href="howtoplay">Comment jouer ?</a></li>
+                <li><a href="leaderboard">Leaderboard</a></li>
+                {% if session['email'] %}
+                    <li><a href="disconnect">Deconnexion</a></li>
+                {% else %}
+                    <li><a href="connexion">Connexion</a></li>
+                {% endif %}
+            
+                
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="profile-container">
+            <img src="{{ url_for('static', filename='choqué.jpg')}}">
+
+            <h1>[NOM DU JOUEUR ]</h1>
+            <p>LVL</p>
+    </div>
+     
+    <div class="stats-container">
+            <div class="stat-card">
+                <h3>PARTIES TERMINÉES</h3>
+                <p>[NB]</p>
+            </div>
+            <div class="stat-card">
+                <h3>Ranking</h3>
+                <p>[ELO]</p>
+            </div>
+            <div class="stat-card">
+                <h3>RATIO VICTOIRE CLASSIQUE</h3>
+                <p>0.00%</p>
+            </div>
+            <div class="stat-card">
+                <h3>RATIO VICTOIRE TOURNOI</h3>
+                <p>0.00%</p>
+            </div>
+            <div class="stat-card">
+                <h3>MEILLEUR STREAK</h3>
+                <p>0</p>
+            </div>
+            <div class="stat-card">
+                <h3>AUTRE STATS</h3>
+                <p>?</p>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
