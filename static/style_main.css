@@ -1,20 +1,37 @@
 @import url("styles.css");
 
-.haut_de_page{
+body{
     background-color: rgb(9, 23, 71);
-    height: 100%;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+.parallax{
+    height: 900px;
+    /* The image used */
+    background-image: url("index_background.png");
+    opacity: 100%;
+    /* Set a specific height */
+    min-height: 10px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .container_main{
     padding: 65px 80px 160px;
-    background-image: url(index_background.png);
-    background-position: center;
+    background-image: url(index_background_overlay.png);
     background-size: cover;
-    height: 70%;
+    animation-timeline: scroll();
 }
 
 .header{
-    font-family: Montserrat, sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
     font-style: italic;
     display: flex;
     justify-content: center;
@@ -31,15 +48,56 @@
 .main_desc{
     margin-top: 20%;
     gap: 20%;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
     color: white;
     text-decoration: none;
-    text-shadow: 10px 5px 5px black;
+    text-shadow: 10px 7px 9px rgb(29, 29, 29);
 }
 
 .desc_title{
     font-size: 50px;
+    
+    
 }
 .desc_text{
     font-size: 65px;
+}
+
+.play_button{
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+
+
+    border: 10px solid hsl(288, 51%, 51%);
+    background-color: hsl(288, 51%, 51%);
+    border-radius: 0.4em;
+    cursor: pointer;
+    padding-inline: 70px;
+    padding-block: 10px;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    
+    color: white;
+    box-shadow: 4px 4px 15px rgb(29, 29, 29);
+}
+
+.play_button:hover{
+    box-shadow: 4px 4px 15px rgb(156, 35, 130);
+}
+
+
+.infos{
+    height: 2080px;
+}
+
+.space{
+    height: 300px;
+}
+.fonda_container{
+    display: flex;
+    height: 800px;
+    background-image: url(index_fonda_background.png);
 }

@@ -5,31 +5,55 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{url_for('static', filename='style_main.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<div class="haut_de_page">
-    <div class="container_main">
-        <div class="header">
+<div class="bg">
+<div class="parallax">
+
+    <div class="haut_de_page">
+        <div class="container_main">
+            <div class="header">
 
 
-            <a class="header_link" href="howtoplay">COMMENT JOUER ?</a>
-            <a class="header_link" href="leaderboard">CLASSEMENT</a>
-            <a class="header_link" href="">FONDATEURS</a>
+                <a class="header_link" href="howtoplay">COMMENT JOUER ?</a>
+                <a class="header_link" href="leaderboard">CLASSEMENT</a>
+                <a class="header_link" href="#fondateurs_section">FONDATEURS</a>
+
+                
+
+            </div>
+            <!-- Gap entre le header et le texte -->
+            <!----->
+            <div class="main_desc">
+                <p class="desc_title">PROJET K</p>
+                <h1 class="desc_text">MONTREZ VOTRE TALENT<br> D'ORATEUR</h1>
+            </div>
+
+            <div class="play_button_container">
+                <button class="play_button" onclick="location.href='startplaying'">
+                    <div class="play_button_box">JOUER</div>
+                </button>
+            </div>
+
         </div>
-        <!-- Gap entre le header et le texte -->
-        <!----->
-        <div class="main_desc">
-            <p class="desc_title">PROJET K</p>
-            <h1 class="desc_text">MONTREZ VOS TALENTS<br> D'ORATEUR</h1>
+
+</div>
+</div>
+
+<div class="infos">
+    <div class="space"></div>
+    <section class="fondateurs" id="fondateurs_section">
+        <div class="fonda_container">
+
         </div>
 
-        <div class="play_button_container">
-            <button>JOUER</button>
-        </div>
-
-    </div>
+    </section>
+    
+</div>
 
 </div>
 

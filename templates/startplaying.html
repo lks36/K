@@ -13,6 +13,12 @@
             <li><a href="/">Acceuil</a></li>
             <li><a href="howtoplay">Comment jouer ?</a></li>
             <li><a href="leaderboard">Leaderboard</a></li>
+
+            {% if not session['username'] %}
+                <li><a href="connexion">Connexion</a></li>
+            {% else %}
+                <li><a href="disconnect">Deconnexion</a></li>
+            {% endif %}
         </ul>
 
     </nav>
