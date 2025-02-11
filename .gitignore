@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 
 # Ignorer les fichiers d'environnement virtuel
-venv/
+.venv/
 .env
 
 # Ignorer les fichiers de logs
