@@ -3,45 +3,35 @@
 <head>
     <title>Accueil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style_main.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <nav class="navbar">
-        <section class="left_buttons">
-            <ul>
-                <li><a href="">Acceuil</a></li>
-                <li><a href="howtoplay">Comment jouer ?</a></li>
-                <li><a href="startplaying">Lancer une partie</a></li>
-                <li><a href="leaderboard">Leaderboard</a></li>
-                {% if session['email'] %}
-                    <li><a href="disconnect">Deconnexion</a></li>
-                {% else %}
-                    <li><a href="connexion">Connexion</a></li>
-                {% endif %}
-            
-                
-            </ul>
-        </section>
-        <section class="profile">
-            <ul>
-                {% if session['email'] %}  
-                    <li class="profile_button"><a href="profil">Profil</a></li>
-                {% endif %}
-                
-            </ul>
-        </section>
+<div class="haut_de_page">
+    <div class="container_main">
+        <div class="header">
 
-    </nav>
 
-    <main>
-        {% if session['email'] %}
-            <p> Email détecté : {{ session['email'] }}</p>
-        {% endif %}
-        
-    </main>
+            <a class="header_link" href="howtoplay">COMMENT JOUER ?</a>
+            <a class="header_link" href="leaderboard">CLASSEMENT</a>
+            <a class="header_link" href="">FONDATEURS</a>
+        </div>
+        <!-- Gap entre le header et le texte -->
+        <!----->
+        <div class="main_desc">
+            <p class="desc_title">PROJET K</p>
+            <h1 class="desc_text">MONTREZ VOS TALENTS<br> D'ORATEUR</h1>
+        </div>
+
+        <div class="play_button_container">
+            <button>JOUER</button>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 
