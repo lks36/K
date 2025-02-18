@@ -122,6 +122,15 @@ def creation(username,email,password):
         cur.execute(sqlreq, (username, email, password))
         con.commit()
 
+        #recuprer l'id de l'utilisateur nouvellement créé
+        cur.execute(f"SELECT id FROM users WHERE email = '{email}'")
+        id = cur.fetchone()[0]
+        print(id)
+
+        # initialiser le score de l'utilisateur dans leaderboard
+        cur.execute(f"INSERT INTO leaderboard VALUES ({id}, 0)")
+        con.commit()
+
         flash("Compte crée avec succès !","success")
         return redirect("./connexion")
     

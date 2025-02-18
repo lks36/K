@@ -12,7 +12,7 @@ app.secret_key = key
 
 @app.route("/")
 def index():
-    return render_template("./index.html")
+    return render_template("./index.html", leaderboard=get_leaderboard())
 
 @app.route("/connexion", methods=['GET', 'POST'])
 def connexion():
