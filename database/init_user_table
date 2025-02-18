@@ -2,5 +2,13 @@ CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
     email TEXT NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    nb_parties INTEGER,
+    nb_victoires_classique INTEGER,
+    nb_victoires_tournois INTEGER,
+    taux_victoire INTEGER,
+    rang TEXT,
+    score_total INTEGER,
+    niveau INTEGER
+
 );

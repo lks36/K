@@ -1,0 +1,8 @@
+CREATE TABLE thematique (
+    id_thematique INTEGER,
+    nom_thematique TEXT,
+    id_partie INTEGER ,
+    PRIMARY KEY(id_thematique, id_partie)
+    FOREIGN KEY (id_partie) REFERENCES classic(id)
+
+);

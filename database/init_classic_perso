@@ -1,6 +1,7 @@
-CREATE TABLE classic (
+CREATE TABLE classic_perso (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     host TEXT,
+    code TEXT
     name TEXT,
     status TEXT NOT NULL,
     nb_joueurs_equipe INT,

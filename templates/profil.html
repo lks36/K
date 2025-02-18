@@ -29,30 +29,30 @@
     <div class="profile-container">
             <img src="{{ url_for('static', filename='choqué.jpg')}}">
 
-            <h1>{{session['username']}}</h1>
-            <p>LVL</p>
+            <h1>{{data["username"]}}</h1>
+            <p>LEVEL {{data["niveau"]}}</p>
     </div>
      
     <div class="stats-container">
             <div class="stat-card">
                 <h3>PARTIES TERMINÉES</h3>
-                <p>[NB]</p>
+                <p>{{data["nb_parties"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>Ranking</h3>
-                <p>[ELO]</p>
+                <h3>POINTS D'ELO</h3>
+                <p>{{data["rang"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>RATIO VICTOIRE CLASSIQUE</h3>
-                <p>0.00%</p>
+                <h3>RATIO VICTOIRES CLASSIQUE</h3>
+                <p>{{data["nb_victoires_classique"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>RATIO VICTOIRE TOURNOI</h3>
-                <p>0.00%</p>
+                <h3>NOMBRE VICTOIRES TOURNOI</h3>
+                <p>{{data["nb_victoires_tournois"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>MEILLEUR STREAK</h3>
-                <p>0</p>
+                <h3>SCORE TOTAL</h3>
+                <p>{{data["score_total"]}}</p>
             </div>
             <div class="stat-card">
                 <h3>AUTRE STATS</h3>

@@ -70,6 +70,31 @@ def get_leaderboard()->list[tuple]:
         print("Erreur dans get_leaderboard() :", erreur)
         return []
 
+def get_list_data(username)->dict:
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        print(username)
+        sqlreq = f"SELECT * FROM users WHERE username='{username}'"
+        res = cur.execute(sqlreq)
+        reslist = res.fetchone()
+        dictionnaire = dict()
+        dictionnaire["username"] =username
+        dictionnaire["nb_parties"] = reslist[4]
+        dictionnaire["nb_victoires_classique"] = reslist[5]
+        dictionnaire["nb_victoires_tournois"] = reslist[6]
+        dictionnaire["taux_victoires"] = reslist[7]
+        dictionnaire["rang"] = reslist[8]
+        dictionnaire["score_total"] = reslist[9]
+        dictionnaire["niveau"] = reslist[10]
+        con.close()
+        print(dictionnaire)
+        return dictionnaire
+
+    except Exception as erreur:
+        print("Erreur dans get_list_data() :", erreur)
+        return []
+
 
 def verifier_login()->bool:
     """Verifie le login de l'utilisateur (request.form['email'], request.form['password'])
@@ -118,8 +143,8 @@ def creation(username,email,password):
             return render_template("create.html", error="Exception_Deja")
 
         # On ajouter le nouvel user a la database
-        sqlreq = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)"
-        cur.execute(sqlreq, (username, email, password))
+        sqlreq = "INSERT INTO users (username, email, password, nb_parties, nb_victoires_classique, nb_victoires_tournois, taux_victoire, rang, score_total, niveau) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        cur.execute(sqlreq, (username, email, password, 0, 0, 0, 0, 0, 0, 0))
         con.commit()
 
         #recuprer l'id de l'utilisateur nouvellement créé
