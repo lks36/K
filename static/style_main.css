@@ -39,6 +39,7 @@ html{
 }
 
 .header_link{
+    margin-top: 10px;
     color: white;
     text-decoration: none;
     margin-inline: 5%;
@@ -100,4 +101,11 @@ html{
     display: flex;
     height: 800px;
     background-image: url(index_fonda_background.png);
+}
+
+
+.profile_button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
