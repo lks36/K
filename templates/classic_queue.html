@@ -5,68 +5,15 @@
     <title>Accueil</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{url_for('static', filename='classic_queue.css')}}">
+    <script src="{{url_for('static', filename='classic_queue.js')}}"></script>
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Acceuil</a></li>
-            <li><a href="howtoplay">Comment jouer ?</a></li>
-            <li><a href="leaderboard">Leaderboard</a></li>
-        </ul>
-
-    </nav>
-
     <main>
         <div class="box">
-        <button class="searchButton" id="searchButton" onclick="startSearching()">Chercher une partie</button>
-            <p id="waitingMessage"></p>
-        <div id="gameInfo" style="display:none;">
-            
-            <h3>🎯 Partie trouvée !</h3>
-            <p><strong>Nom de la partie :</strong> <span id="roomName"></span></p>
-            <p><strong>Créateur :</strong> <span id="host"></span></p>
+        <button class="searchButton" id="searchButton" onclick="startSearching()">LANCER UNE PARTIE</button>
+            <p id="waitingMessage" class="waitingMessage"></p>
         </div>
-        </div>
-
-
-
-        <script>
-            let searching = false;
-            let waitTime = 0;
-            let interval;
-    
-            function startSearching() {
-                if (searching) return;  // Évite le spam du bouton
-                document.getElementById("searchButton").style.display = "none";
-                searching = true;
-                waitTime = 0;
-                document.getElementById("waitingMessage").innerHTML = "Recherche de partie... 0s";
-    
-                interval = setInterval(async () => {
-                    waitTime++;
-                    document.getElementById("waitingMessage").innerHTML = `Recherche de partie... ${waitTime}s`;
-    
-                    // Vérifie si une partie est disponible dans la base de données
-                    const response = await fetch("/check_game");
-                    const data = await response.json();
-    
-                    if (data.found) {
-                        clearInterval(interval);
-                        
-                        document.getElementById("waitingMessage").innerHTML = "✅ Partie trouvée ! Redirection...";
-                        document.getElementById("roomName").textContent = data.name;
-                        document.getElementById("host").textContent = data.host;
-                        document.getElementById("gameInfo").style.display = "block";
-
-                        setTimeout(()=> {
-                            window.location.href = "/game/"+data.id;
-                        }, 3000);
-
-                    }
-                }, 1000);
-            }
-        </script>
     </main>
 
 </body>

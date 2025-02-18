@@ -1,21 +1,9 @@
 from flask import Flask, render_template, request, session, flash, redirect
 import time
 import sqlite3
+from matchmaking import *
 
 
-def get_classic_games()->list[tuple]:
-    try:
-        con = sqlite3.connect("./database/database.db")
-        cur = con.cursor()
-        sqlreq = f"SELECT * FROM classic"
-        res = cur.execute(sqlreq)
-        reslist = res.fetchall()
-        con.close()
-        return reslist
-
-    except Exception as erreur:
-        print("Erreur dans get_classic_games() :", erreur)
-        return []
 
 def verifie_connexion():
     try:
@@ -150,7 +138,6 @@ def creation(username,email,password):
         #recuprer l'id de l'utilisateur nouvellement créé
         cur.execute(f"SELECT id FROM users WHERE email = '{email}'")
         id = cur.fetchone()[0]
-        print(id)
 
         # initialiser le score de l'utilisateur dans leaderboard
         cur.execute(f"INSERT INTO leaderboard VALUES ({id}, 0)")

@@ -91,14 +91,42 @@ def classic_queue():
 def check_game():
     """Envoie les données d'une partie dès qu'elle est trouvée au js de la page classicqueue"""
 
-    #récuperer la liste des parties
-    gamelist = get_classic_games()
     #choisir une partie
     found = False
-    for id, host, name, status, maxplayers, creation in gamelist:
-        if status == "en attente":
-            found = True
-    return jsonify({"found": found, "id": id, "host": host, "name":name, "maxplayers":maxplayers})
+    ready = False
+    game = choose_game()
+    status = game["status"]
+    gameid = game["gameid"]
+    nbjoueurs = game["nbjoueurs"]
+    maxjoueurs=game["maxjoueurs"]
+    
+    #effectuer le traitement
+    if status == "en attente":
+        found = True
+    if status == "ready":
+        ready = True
+
+    print(f"Found : {found}\nGameid:{gameid}\n Status : {status}")
+
+    return jsonify({"found": found, "status": status, "gameid":gameid, "ready":ready})
+
+
+@app.route("/ajouter_queue", methods=['GET'])
+def ajouter_queue():
+    gameid = request.args.get("gameid")
+    con = sqlite3.connect("./database/database.db")
+    cur = con.cursor()
+    cur.execute(f"SELECT id FROM users WHERE email = '{session['email']}'")
+    id = cur.fetchone()[0]
+    con.close()
+    add_queue(id, gameid)
+    return jsonify({"added":True})
+
+@app.route("/launch_game", methods=['GET']) 
+def launch_game():
+    gameid = request.args.get("gameid")
+    res=lancer_partie(gameid)
+    return jsonify({"ready":res})
 
 @app.route("/create", methods=['GET', 'POST'])
 def create():

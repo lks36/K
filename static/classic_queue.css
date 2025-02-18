@@ -17,3 +17,34 @@ main{
     display: block;
     justify-content: center;
 }
+
+.searchButton{
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+
+
+    border: 10px solid hsl(288, 51%, 51%);
+    background-color: hsl(288, 51%, 51%);
+    border-radius: 0.4em;
+    cursor: pointer;
+    padding-inline: 70px;
+    padding-block: 10px;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    
+    color: white;
+    box-shadow: 4px 4px 15px rgb(29, 29, 29);
+}
+
+.searchButton:hover{
+    box-shadow: 4px 4px 15px rgb(156, 35, 130);
+}
+
+.waitingMessage{
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    font-size: larger;
+}
