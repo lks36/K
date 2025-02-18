@@ -1,0 +1,9 @@
+CREATE TABLE message_classic_perso (
+    id_message INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_partie INTEGER,
+    id_player INTEGER,
+    creation TIMESTAMP,
+    FOREIGN KEY (id_player) REFERENCES users(id),
+    FOREIGN KEY (id_partie) REFERENCES classic_perso(id)
+
+);

@@ -1,0 +1,9 @@
+CREATE TABLE message_tournoi (
+    id_message INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_partie INTEGER,
+    id_player INTEGER,
+    creation TIMESTAMP,
+    FOREIGN KEY (id_player) REFERENCES users(id),
+    FOREIGN KEY (id_partie) REFERENCES tournoi(id)
+
+);

@@ -49,7 +49,7 @@ def howtoplay():
 
 @app.route("/profil")
 def profil():
-    return render_template("./profil.html")
+    return render_template("./profil.html", data=get_list_data(session['username']))
 
 @app.route("/startplaying")
 def startplaying():

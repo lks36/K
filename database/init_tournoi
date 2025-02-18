@@ -1,9 +1,8 @@
-CREATE TABLE classic (
+CREATE TABLE tournoi (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    host TEXT,
+    host INTEGER,
     name TEXT,
     status TEXT NOT NULL,
-    nb_joueurs_equipe INT,
-    creation TIMESTAMP,
+    creation TIMESTAMP
     FOREIGN KEY (host) REFERENCES users(id)
 );

@@ -1,0 +1,8 @@
+CREATE TABLE user_in_game_classic_perso (
+    id_partie INTEGER,
+    id_player INTEGER,
+    PRIMARY KEY(id_partie,id_player),
+    FOREIGN KEY (id_player) REFERENCES users(id),
+    FOREIGN KEY (id_partie) REFERENCES classic_perso(id)
+
+);
