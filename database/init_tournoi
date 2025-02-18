@@ -3,6 +3,6 @@ CREATE TABLE tournoi (
     host INTEGER,
     name TEXT,
     status TEXT NOT NULL,
-    creation TIMESTAMP
+    creation TIMESTAMP,
     FOREIGN KEY (host) REFERENCES users(id)
 );
