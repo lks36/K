@@ -153,15 +153,3 @@ body{
 .profile{
   margin-left: 63%;
 }
-
-.leaderboard{
-  text-align: center;
-  margin-top: 5%;
-  margin-left: 45%;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.leaderboard_body{
-  background-image: url("leaderboard_background.png");
-  background-size: cover;
-}

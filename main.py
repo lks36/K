@@ -31,7 +31,11 @@ def connexion():
 @app.route("/leaderboard")
 def leaderboard():
     leaderboard_list = get_leaderboard()
-    return render_template("./leaderboard.html", leaderboard=leaderboard_list, iter_liste=range(len(leaderboard_list)))
+    if len(leaderboard_list) < 10:
+        liste=range(len(leaderboard_list))
+    else:
+        liste=range(10)
+    return render_template("./leaderboard.html", leaderboard=leaderboard_list, iter_liste=liste)
 
 @app.route("/disconnect")
 def disconnect():

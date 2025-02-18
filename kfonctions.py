@@ -59,7 +59,7 @@ def get_leaderboard()->list[tuple]:
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
         # Problème : Injection SQL possible (?)
-        sqlreq = f"SELECT score, username FROM leaderboard JOIN users ON users.id = leaderboard.id ORDER BY score ASC"
+        sqlreq = f"SELECT score, username FROM leaderboard JOIN users ON users.id = leaderboard.id ORDER BY score DESC"
         res = cur.execute(sqlreq)
         reslist = res.fetchall()
         con.close()

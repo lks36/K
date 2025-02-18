@@ -4,27 +4,50 @@
 <head>
     <title>Accueil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='leaderboard.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body class="leaderboard_body">
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Acceuil</a></li>
-            <li><a href="howtoplay">Comment jouer ?</a></li>
-            <li><a href="leaderboard">Leaderboard</a></li>
-        </ul>
+    <div class="haut_de_page">
+        <div class="container_main">
+            <div class="header">
 
-    </nav>
 
-    <main>
-        <div class="leaderboard">
-            <h2 class="leaderboard_title"> Leaderboard </h2>
-            {% for i in iter_liste %}
-                <p> Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
-            {% endfor %}
-        </div>
-    </main>
+                <a class="header_link" href="/">ACCUEIL</a>
+                <a class="header_link" href="leaderboard">CLASSEMENT</a>
+                <a class="header_link" href="/">FONDATEURS</a>
+
+                
+
+            </div>
+            <!-- Gap entre le header et le texte -->
+            <!----->
+            <div class="leaderboard_container">
+                <div class="leaderboard">
+                    <h2 class="leaderboard_title"> 🏆 Leaderboard 🏆 </h2>
+
+
+                    {% for i in iter_liste %}
+                        {% if i == 0 : %}
+                        <p> 🥇 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+                        {% elif i == 1 %}
+                        <p> 🥈 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+                        {% elif i == 2 %}
+                        <p> 🥉 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+                        {% else %}
+                        <p> Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+
+    
+    
+    
 
 </body>
 
