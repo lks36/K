@@ -109,3 +109,22 @@ html{
     width: 50px;
     border-radius: 50%;
 }
+
+.leaderboard_container{
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.leaderboard{
+    color:white;
+    font-family: 'Rubik', sans-serif;;
+}
+
+.leaderboard_section{
+    display: flex;
+    justify-content: center;
+    margin:100px;
+}
+

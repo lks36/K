@@ -12,7 +12,8 @@ app.secret_key = key
 
 @app.route("/")
 def index():
-    return render_template("./index.html", leaderboard=get_leaderboard())
+    lb = get_leaderboard()
+    return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)))
 
 @app.route("/connexion", methods=['GET', 'POST'])
 def connexion():
@@ -20,27 +21,24 @@ def connexion():
         if verifier_login():
             # A faire : Créer une session
             session['email'] = request.form['email']
-
-            return render_template("./index.html")
+            session['id'] = get_id_by_email(session["email"])
+            return redirect("/")
         else:
             session['email'] = None
-            return render_template("./index.html")
+            return redirect("/")
     else:
         return render_template("./connexion.html")
     
 @app.route("/leaderboard")
 def leaderboard():
     leaderboard_list = get_leaderboard()
-    if len(leaderboard_list) < 10:
-        liste=range(len(leaderboard_list))
-    else:
-        liste=range(10)
-    return render_template("./leaderboard.html", leaderboard=leaderboard_list, iter_liste=liste)
+    return render_template("./leaderboard.html", leaderboard=leaderboard_list, iter_liste=range(len(leaderboard_list)))
 
 @app.route("/disconnect")
 def disconnect():
     session['email'] = None
     session['username'] = None
+    session['id'] = None
     return render_template("./disconnect.html")
 
 @app.route("/howtoplay")
@@ -49,8 +47,10 @@ def howtoplay():
 
 @app.route("/profil")
 def profil():
-    return render_template("./profil.html", data=get_list_data(session['username']))
-
+    if session["email"]:
+        return render_template("./profil.html", data=get_list_data(session['username']))
+    else:
+        return redirect("/connexion")
 @app.route("/startplaying")
 def startplaying():
     return render_template("./startplaying.html")
@@ -114,18 +114,16 @@ def check_game():
 @app.route("/ajouter_queue", methods=['GET'])
 def ajouter_queue():
     gameid = request.args.get("gameid")
-    con = sqlite3.connect("./database/database.db")
-    cur = con.cursor()
-    cur.execute(f"SELECT id FROM users WHERE email = '{session['email']}'")
-    id = cur.fetchone()[0]
-    con.close()
-    add_queue(id, gameid)
+    add_queue(session["id"], gameid)
     return jsonify({"added":True})
 
 @app.route("/launch_game", methods=['GET']) 
 def launch_game():
+    #Récuperer le gameid passé en paramètre de la requête
     gameid = request.args.get("gameid")
+    #Tenter de lancer la partie
     res=lancer_partie(gameid)
+    #Renvoyer True si la partie a bien été lancée, False sinon
     return jsonify({"ready":res})
 
 @app.route("/create", methods=['GET', 'POST'])

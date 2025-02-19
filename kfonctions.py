@@ -5,6 +5,20 @@ from matchmaking import *
 
 
 
+def get_id_by_email(email:str)->int:
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        sqlreq = f"SELECT id FROM users WHERE email = '{email}'"
+        res = cur.execute(sqlreq).fetchone()[0]
+        assert (type(res) == int and res>0), "Id récupéré non valide"
+        con.close()
+        return res
+    except Exception as erreur:
+        print("Erreur dans get_id_by_email():", erreur)
+        return -1
+
+
 def verifie_connexion():
     try:
         if session is None:
@@ -52,7 +66,11 @@ def get_leaderboard()->list[tuple]:
         reslist = res.fetchall()
         con.close()
         print("test", reslist)
-        return reslist
+
+        if(len(reslist) > 10):
+            return reslist[0:9]
+        else:
+            return reslist
 
     except Exception as erreur:
         print("Erreur dans get_leaderboard() :", erreur)

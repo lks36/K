@@ -57,10 +57,23 @@
 
     </section>
 
-    <section class="leaderboard">
-        {% for t in leaderboard %}
-            <p>{{t}}</p>
+    <section class="leaderboard_section">
+        
+
+        <div class="leaderboard">
+            <h1>Leaderboard</h1>
+        {% for i in iter_liste %}
+            {% if i == 0 : %}
+            <p> 🥇 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+            {% elif i == 1 %}
+            <p> 🥈 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+            {% elif i == 2 %}
+            <p> 🥉 Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+            {% else %}
+            <p> Top {{i+1}} : {{leaderboard[i][1]}} | Score : {{leaderboard[i][0]}}</p>
+            {% endif %}
         {% endfor %}
+        </div>
     </section>
     
 </div>

@@ -61,17 +61,30 @@ def add_queue(userid, gameid):
         print("Erreur dans add_queue() :", erreur)
         return False
 
-def lancer_partie(gameid):
-    maxplayers = get_game_info(gameid)["maxplayers"]
+def lancer_partie(gameid:int)->bool:
+    """Verifie si le nombre de joueur de la partie est suffisant pour lancer la partie et
+    passe le status de la partie en 'ready'
+    
+    Renvoie:
+        - True si la partie a bien été lancée
+        - False sinon
+    """
+    try:
+        maxplayers = get_game_info(gameid)["maxplayers"]
 
-    con = sqlite3.connect("./database/database.db")
-    cur = con.cursor()
-    sqlreq = f"SELECT count(*) FROM user_in_game_classic WHERE id_partie"
-    count = cur.execute(sqlreq).fetchone()[0]
-    if count >= maxplayers:
-        sqlreq = f"UPDATE classic SET status='ready' WHERE id={gameid}"
-        cur.execute(sqlreq)
+        #calcul du nombre de joueurs "inscrits" dans la partie
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        sqlreq = f"SELECT count(*) FROM user_in_game_classic WHERE id_partie"
+        count = cur.execute(sqlreq).fetchone()[0]
+
+        if count >= maxplayers:
+            sqlreq = f"UPDATE classic SET status='ready' WHERE id={gameid}"
+            cur.execute(sqlreq)
+            con.close()
+            return True
         con.close()
-        return True
-    con.close()
-    return False
+        return False
+    except Exception as erreur:
+        print("Erreur dans lancer_partie() :", erreur)
+        return False
