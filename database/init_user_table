@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     taux_victoire INTEGER,
     rang TEXT,
     score_total INTEGER,
-    niveau INTEGER
+    niveau INTEGER,
+    avatar TEXT
 
 );

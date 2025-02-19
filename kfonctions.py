@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, flash, redirect
 import time
 import sqlite3
 from matchmaking import *
-
+from profil import *
 
 
 def get_id_by_email(email:str)->int:
@@ -149,8 +149,8 @@ def creation(username,email,password):
             return render_template("create.html", error="Exception_Deja")
 
         # On ajouter le nouvel user a la database
-        sqlreq = "INSERT INTO users (username, email, password, nb_parties, nb_victoires_classique, nb_victoires_tournois, taux_victoire, rang, score_total, niveau) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        cur.execute(sqlreq, (username, email, password, 0, 0, 0, 0, 0, 0, 0))
+        sqlreq = "INSERT INTO users (username, email, password, nb_parties, nb_victoires_classique, nb_victoires_tournois, taux_victoire, rang, score_total, niveau, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        cur.execute(sqlreq, (username, email, password, 0, 0, 0, 0, 0, 0, 0, "default"))
         con.commit()
 
         #recuprer l'id de l'utilisateur nouvellement créé
