@@ -13,7 +13,7 @@ app.secret_key = key
 @app.route("/")
 def index():
     lb = get_leaderboard()
-    return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)))
+    return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=get_user_avatar(session["id"]))   
 
 @app.route("/connexion", methods=['GET', 'POST'])
 def connexion():
@@ -48,7 +48,7 @@ def howtoplay():
 @app.route("/profil")
 def profil():
     if session["email"]:
-        return render_template("./profil.html", data=get_list_data(session['username']))
+        return render_template("./profil.html", data=get_list_data(session['username']), avatar=get_user_avatar(session["id"]))
     else:
         return redirect("/connexion")
 @app.route("/startplaying")
