@@ -13,19 +13,29 @@ app.secret_key = key
 @app.route("/")
 def index():
     lb = get_leaderboard()
-    return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=get_user_avatar(session["id"]))   
+    print(session)
+    if session and session["id"]:
+        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=get_user_avatar(session["id"]))  
+    else:
+        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar="default")
 
 @app.route("/connexion", methods=['GET', 'POST'])
 def connexion():
     if request.method == 'POST':
-        if verifier_login():
+        email = request.form['email']
+        password = request.form['password']
+
+        if verifier_login(email, password):
             # A faire : Créer une session
-            session['email'] = request.form['email']
+            session['email'] = email
             session['id'] = get_id_by_email(session["email"])
+            session['username'] = get_list_data_id(session['id'])['username']
             return redirect("/")
         else:
             session['email'] = None
-            return redirect("/")
+            session['id'] = None
+            session['username'] = None
+            return redirect("/create")
     else:
         return render_template("./connexion.html")
     

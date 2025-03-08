@@ -76,16 +76,15 @@ def get_leaderboard()->list[tuple]:
         print("Erreur dans get_leaderboard() :", erreur)
         return []
 
-def get_list_data(username)->dict:
+def get_list_data_id(id)->dict:
     try:
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
-        print(username)
-        sqlreq = f"SELECT * FROM users WHERE username='{username}'"
+        sqlreq = f"SELECT * FROM users WHERE id={id}"
         res = cur.execute(sqlreq)
         reslist = res.fetchone()
         dictionnaire = dict()
-        dictionnaire["username"] =username
+        dictionnaire["username"] = reslist[1]
         dictionnaire["nb_parties"] = reslist[4]
         dictionnaire["nb_victoires_classique"] = reslist[5]
         dictionnaire["nb_victoires_tournois"] = reslist[6]
@@ -99,10 +98,36 @@ def get_list_data(username)->dict:
 
     except Exception as erreur:
         print("Erreur dans get_list_data() :", erreur)
-        return []
+        return {}
 
 
-def verifier_login()->bool:
+def get_list_data(username)->dict:
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        sqlreq = f"SELECT * FROM users WHERE username='{username}'"
+        res = cur.execute(sqlreq)
+        reslist = res.fetchone()
+        dictionnaire = dict()
+        dictionnaire["username"]=username
+        dictionnaire["nb_parties"] = reslist[4]
+        dictionnaire["nb_victoires_classique"] = reslist[5]
+        dictionnaire["nb_victoires_tournois"] = reslist[6]
+        dictionnaire["taux_victoires"] = reslist[7]
+        dictionnaire["rang"] = reslist[8]
+        dictionnaire["score_total"] = reslist[9]
+        dictionnaire["niveau"] = reslist[10]
+        con.close()
+        print(dictionnaire)
+        return dictionnaire
+
+    except Exception as erreur:
+        print("Erreur dans get_list_data() :", erreur)
+        return {}
+
+
+def verifier_login(email, mdp)->bool:
+    print('verifier login -----------------------')
     """Verifie le login de l'utilisateur (request.form['email'], request.form['password'])
     
     Returns : 
@@ -113,7 +138,7 @@ def verifier_login()->bool:
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
         # Problème : Injection SQL possible (?)
-        sqlreq = f"SELECT * FROM users WHERE email = '{request.form['email']}'"
+        sqlreq = f"SELECT * FROM users WHERE email = '{email}'"
         res = cur.execute(sqlreq)
         #Attention : Récuperer le tuple de fetchone dans une variable
         res_tuple = res.fetchone()
@@ -124,8 +149,7 @@ def verifier_login()->bool:
             # Cette adresse n'existe pas
             return False
         else:
-            if password == request.form['password']:
-                session['username'] = res_tuple[1]
+            if password == mdp:
                 return True
             else:
                 return False
