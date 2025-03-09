@@ -70,21 +70,23 @@ def lancer_partie(gameid:int)->bool:
         - False sinon
     """
     try:
-        maxplayers = get_game_info(gameid)["maxplayers"]
-
-        #calcul du nombre de joueurs "inscrits" dans la partie
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
-        sqlreq = f"SELECT count(*) FROM user_in_game_classic WHERE id_partie"
-        count = cur.execute(sqlreq).fetchone()[0]
-
-        if count >= maxplayers:
-            sqlreq = f"UPDATE classic SET status='ready' WHERE id={gameid}"
-            cur.execute(sqlreq)
-            con.close()
-            return True
+        cur.execute(f"UPDATE classic SET status='ready' WHERE id={gameid}")
+        con.commit()
         con.close()
+        return True
+    except Exception as erreur:
+        print("Erreur dans lancer_partie() :", erreur)
         return False
+    
+def attendre_partie(gameid):
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        res = cur.execute(f"SELECT * from classic WHERE status='ready' AND id={gameid}").fetchone()
+        con.close()
+        return res != []
     except Exception as erreur:
         print("Erreur dans lancer_partie() :", erreur)
         return False

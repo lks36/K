@@ -27,11 +27,11 @@ function startSearching() {
                 let gameid = data.gameid
                 //tant que la game n'est pas lancée, chaque seconde:
                 setInterval(async () => {
-                    const response = await fetch(`/launch_game?gameid=${gameid}`);
+                    const response = await fetch(`/wait_game?gameid=${gameid}`);
                     const data = await response.json();
                     if (data.ready) {setTimeout(()=> {window.location.href = "/game/"+gameid;}, 3000);}
                     console.log("OK OK OK")
-                }, 1000)
+                }, 3000)
                     
             }
         }

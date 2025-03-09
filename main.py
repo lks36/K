@@ -127,14 +127,15 @@ def ajouter_queue():
     add_queue(session["id"], gameid)
     return jsonify({"added":True})
 
-@app.route("/launch_game", methods=['GET']) 
-def launch_game():
+@app.route("/wait_game", methods=['GET']) 
+def wait_game():
     #Récuperer le gameid passé en paramètre de la requête
     gameid = request.args.get("gameid")
     #Tenter de lancer la partie
-    res=lancer_partie(gameid)
+    res=attendre_partie(gameid)
     #Renvoyer True si la partie a bien été lancée, False sinon
     return jsonify({"ready":res})
+
 
 @app.route("/create", methods=['GET', 'POST'])
 def create():
