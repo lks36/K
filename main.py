@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect, jsonify, f
 import time
 import sqlite3
 from kfonctions import *
+import profil
 app = Flask(__name__)
 
 
@@ -57,7 +58,7 @@ def howtoplay():
 
 @app.route("/profil")
 def profil():
-    if session["email"]:
+    if session and session["email"]:
         return render_template("./profil.html", data=get_list_data(session['username']), avatar=get_user_avatar(session["id"]))
     else:
         return redirect("/connexion")
@@ -116,7 +117,7 @@ def check_game():
     if status == "ready":
         ready = True
 
-    print(f"Found : {found}\nGameid:{gameid}\n Status : {status}")
+    print(f"Found : {found}\nGameid:{gameid}\n Status : {status}\n Max : {maxjoueurs}")
 
     return jsonify({"found": found, "status": status, "gameid":gameid, "ready":ready})
 
@@ -150,6 +151,10 @@ def create():
             return creation(username, email, password)
     else:
         return render_template("./create.html", error=None)
+
+@app.route("/game/<int:gameid>")
+def show_game(gameid):
+    return f"<p>Bienvenue dans la partie {gameid} ! {session['username']}</p>"
 
 if __name__ == '__main__':
     app.run(debug=True)

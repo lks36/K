@@ -46,7 +46,7 @@ main{
 
 .classique{
     width: 50%;
-    background-color: rgb(110, 255, 154);
+    background-color: rgb(62, 201, 103);
     height: 100%;
     
 }
@@ -54,7 +54,7 @@ main{
 .tournoi{
     width: 50%;
     height: 100%;
-    background-color: rgb(255, 127, 191);
+    background-color: rgb(207, 73, 140);
     color: beige;
 }
 

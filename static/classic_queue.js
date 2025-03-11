@@ -31,7 +31,7 @@ function startSearching() {
                     const data = await response.json();
                     if (data.ready) {setTimeout(()=> {window.location.href = "/game/"+gameid;}, 3000);}
                     console.log("OK OK OK")
-                }, 3000)
+                }, 5000)
                     
             }
         }

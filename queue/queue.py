@@ -1,7 +1,7 @@
 import time
 import sqlite3
 from matchmaking import *
-
+clock = 0
 
 def get_users_in(gameid):
     try:
@@ -35,9 +35,17 @@ def parties_pretes():
         print("Erreur dans lancer_partie() :", erreur)
         return []
 
+
+
+
 while True:
+    if clock%120 == 0:
+        creer_partie_classique("Classic Game", "Ksite.com", "1")
+    print(clock)
     time.sleep(4)
+    clock += 4
     for partie in parties_pretes():
         print("Lancement de", partie[0])
         if lancer_partie(partie[0]):
             print("Parite lancée :", partie[0])
+    

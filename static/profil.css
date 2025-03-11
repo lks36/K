@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: rgb(213, 228, 228);
 }
 
 .stats-container {
@@ -14,7 +15,7 @@ body{
 }
 
 .stat-card {
-    background-color: #0adb37;
+    background-color: #84ff9e;
     border-radius: 16px;
     padding: 20px;
     text-align: center;

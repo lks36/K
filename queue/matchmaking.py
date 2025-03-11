@@ -82,13 +82,30 @@ def lancer_partie(gameid:int)->bool:
     
 def attendre_partie(gameid):
     try:
-        
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
         res = cur.execute(f"SELECT * from classic WHERE status='ready' AND id={gameid}").fetchone()
         con.close()
-        print("attendre la partie : res = ", res)
-        return (res != None)
+        print("res = ", res)
+        return res != []
     except Exception as erreur:
         print("Erreur dans lancer_partie() :", erreur)
+        return False
+
+def creer_partie_classique(nom:str, host:str, maxplayer:int)->bool:
+    """Créer une partie classique dans la base de données
+
+    Returns :
+        bool: true if the game was successfully created
+    """
+    print(host, nom, maxplayer)
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        ts = int(round(time.time(), 0))
+        cur.execute(f"INSERT INTO classic ('host', 'name', 'status', 'maxplayers', 'creation') VALUES ('{host}', '{nom}', 'en attente', {maxplayer}, {ts})")
+        con.commit()
+        return True
+    except Exception as erreur:
+        print("Erreur dans creer_partie_classique : ", erreur)
         return False
