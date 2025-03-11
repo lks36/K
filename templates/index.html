@@ -23,9 +23,11 @@
                 <a class="header_link" href="leaderboard">CLASSEMENT</a>
                 <a class="header_link" href="#fondateurs_section">FONDATEURS</a>
 
-                
-                <a href="profil"><img class="profile_button" src="/static/avatars/{{avatar}}.jpg"></a>
-                
+                {% if not session['username'] %}
+                    <li><a href="connexion">Connexion</a></li>
+                {% else %}    
+                    <a href="profil"><img class="profile_button" src="/static/avatars/{{avatar}}.jpg"></a>
+                {% endif %}
                 
 
             </div>
