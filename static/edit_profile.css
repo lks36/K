@@ -1,0 +1,17 @@
+@import url("profil.css");
+
+
+.edit_button{
+    padding-inline: 20px;
+    padding-block: 7px;
+}
+
+.profile-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.icon_edit_container{
+    margin-left: 20px;
+}

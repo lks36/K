@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Joueur</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='edit_profile.css')}}">
+    <script src="{{url_for('static', filename='edit_profile.js')}}"></script>
+</head>
+<body>
+    <div class="background">
+    <nav class="navbar">
+        <div>
+            <ul>
+                <li><a href="/profil">Retour au profil</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    <form method=post enctype=multipart/form-data onchange="loadFile(event)">
+    <div class="content">
+    <div class="profile-container">
+            <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg" id="output">
+            <div class="icon_edit_container">
+                <h2>Modifier la photo de profil</h2>
+                <div class="icon_uploader_container">
+                        <input type=file name=file>
+                </div>
+            </div>
+    </div>
+    
+
+    <div class="edit_profile">
+        <input type="submit" class="edit_button" onclick="location.href='edit_profile'" value="Sauvegarder les modifications"></input>
+    </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

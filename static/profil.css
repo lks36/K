@@ -46,3 +46,34 @@ body{
     object-fit: cover; 
     margin-bottom: 15px; 
 }
+
+.edit_profile{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+.edit_button{
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+
+
+    border: 10px solid hsl(189, 51%, 51%);
+    background-color: hsl(189, 51%, 51%);
+    border-radius: 0.4em;
+    cursor: pointer;
+    padding-inline: 40px;
+    padding-block: 8px;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    
+    color: white;
+    box-shadow: 4px 4px 15px rgb(29, 29, 29);
+}
+
+.edit_button:hover{
+    box-shadow: 4px 4px 15px rgb(133, 206, 184);
+}

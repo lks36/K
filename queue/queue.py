@@ -47,5 +47,5 @@ while True:
     for partie in parties_pretes():
         print("Lancement de", partie[0])
         if lancer_partie(partie[0]):
-            print("Parite lancée :", partie[0])
+            print("Parite lancée :", partie[0]) 
     

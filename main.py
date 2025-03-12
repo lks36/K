@@ -1,10 +1,22 @@
 from flask import Flask, render_template, request, session, redirect, jsonify, flash
 import time
+import os
 import sqlite3
 from kfonctions import *
 import profil
+
 app = Flask(__name__)
 
+UPLOAD_FOLDER = "./static/avatars"
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 10 * 1000 * 1000
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 keyfile = open("./keyfile.txt")
 key = keyfile.read()
@@ -16,7 +28,7 @@ def index():
     lb = get_leaderboard()
     print(session)
     if session and session["id"]:
-        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=get_user_avatar(session["id"]))  
+        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=str(session["id"]))  
     else:
         return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar="default")
 
@@ -155,6 +167,29 @@ def create():
 @app.route("/game/<int:gameid>")
 def show_game(gameid):
     return f"<p>Bienvenue dans la partie {gameid} ! {session['username']}</p>"
+
+
+@app.route("/edit_profile", methods=['GET', 'POST'])
+def edit_profile():
+    if session and session['id']:
+        if request.method == 'POST':
+            if 'file' not in request.files:
+                flash("No file part")
+                return redirect(request.url)
+            file = request.files['file']
+            if file.filename == '':
+                flash('No selected file.')
+                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                filename = f"{session['id']}.jpg"
+                file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                return redirect("/profil")
+        return render_template("./edit_profile.html", userid=session['id'])
+    else:
+        flash("Erreur")
+        return redirect("/")
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

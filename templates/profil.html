@@ -12,8 +12,6 @@
         <div>
             <ul>
                 <li><a href="/">Accueil</a></li>
-                <li><a href="howtoplay">Comment jouer ?</a></li>
-                <li><a href="leaderboard">Leaderboard</a></li>
                 {% if session['email'] %}
                     <li><a href="disconnect">Deconnexion</a></li>
                 {% else %}
@@ -27,10 +25,10 @@
 
     <div class="content">
     <div class="profile-container">
-            <img src="/static/avatars/{{avatar}}.jpg">
+            <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg">
 
             <h1>{{data["username"]}}</h1>
-            <p>LEVEL {{data["niveau"]}}</p>
+            <p>NIVEAU {{data["niveau"]}}</p>
     </div>
      
     <div class="stats-container">
@@ -60,6 +58,10 @@
             </div>
             
         </div>
+    </div>
+
+    <div class="edit_profile">
+        <button class="edit_button" onclick="location.href='edit_profile'">Modifier le profil</button>
     </div>
 </div>
 </body>
