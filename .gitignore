@@ -5,6 +5,8 @@ __pycache__/
 # Ignorer les fichiers d'environnement virtuel
 .venv/
 .env
+ven/
+env/
 
 # Ignorer les fichiers de logs
 logs/
@@ -12,3 +14,6 @@ logs/
 
 # Ignorer les fichiers de base de données temporaires
 *.sqlite3
+
+#ignorer les fichiers cacher mac
+.DS_Store
