@@ -1,9 +1,11 @@
 CREATE TABLE classic (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_thematique INTEGER,
     host TEXT,
     name TEXT,
     status TEXT NOT NULL,
     nb_joueurs_equipe INT,
     creation TIMESTAMP,
-    FOREIGN KEY (host) REFERENCES users(id)
+    FOREIGN KEY (host) REFERENCES users(id),
+    FOREIGN KEY (id_thematique) REFERENCES thematique(id)
 );

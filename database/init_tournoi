@@ -1,8 +1,10 @@
 CREATE TABLE tournoi (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_thematique INTEGER,
     host INTEGER,
     name TEXT,
     status TEXT NOT NULL,
     creation TIMESTAMP,
-    FOREIGN KEY (host) REFERENCES users(id)
+    FOREIGN KEY (host) REFERENCES users(id),
+    FOREIGN KEY (id_thematique) REFERENCES thematique(id)
 );
