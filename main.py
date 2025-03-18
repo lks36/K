@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, jsonify, flash
+from flask_socketio import SocketIO, emit
 import time
 import os
 import sqlite3
@@ -6,6 +7,7 @@ from kfonctions import *
 import profil
 
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 UPLOAD_FOLDER = "./static/avatars"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -191,5 +193,14 @@ def edit_profile():
 
 
 
+def messageReceived(methods=['GET', 'POST']):
+    print('message recu!')
+
+@socketio.on('mon message')
+def handle_mon_message(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callback=messageReceived)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app,debug=True)
