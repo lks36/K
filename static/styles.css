@@ -50,23 +50,9 @@ body{
 }
 
 
-.login{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 30%;
-    padding-right: 30%;
-    text-align: center;
-}
 .existant, .non_existant {
     text-align: center;
   }
-
-.login_form{
-    display: block;
-    margin-bottom: 10px;
-}
-
 
 
 .input {
@@ -93,23 +79,6 @@ body{
 
 .form-btn:active {
   box-shadow: none;
-}
-
-.login {
-    width: 350px;
-    height: 500px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 7%;
-    display: flex;
-    justify-content: center;
-  }
-.login_box{
-  margin-top: 1%;
-  display: flex;
-  justify-content: center;
 }
 
   .title {
