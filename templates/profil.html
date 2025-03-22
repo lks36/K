@@ -8,27 +8,21 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div>
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                {% if session['email'] %}
-                    <li><a href="disconnect">Deconnexion</a></li>
+    <div class="header">
+        <a class="header_link1" href="/">RETOUR À L'ACCUEIL</a>
+        {% if session['email'] %}
+                    <a  class="header_link2" href="disconnect">DECONNEXION</a>
                 {% else %}
-                    <li><a href="connexion">Connexion</a></li>
+                    <a  class="header_link2" href="connexion">CONNEXION</a>
                 {% endif %}
-            
-                
-            </ul>
-        </div>
-    </nav>
-
+    </div>
+    
     <div class="content">
     <div class="profile-container">
             <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg">
 
-            <h1>{{data["username"]}}</h1>
-            <p>NIVEAU {{data["niveau"]}}</p>
+            <p class="nomProfil">{{data["username"]}}</h1>
+            <p class="niveauProfil">NIVEAU {{data["niveau"]}}</p>
     </div>
      
     <div class="stats-container">

@@ -9,7 +9,7 @@ html{
 }
 
 .parallax{
-    height: 900px;
+    height: 100%;
     /* The image used */
     background-image: url("index_background.png");
     opacity: 100%;
@@ -22,6 +22,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .container_main{
     padding: 65px 80px 160px;
     background-image: url(index_background_overlay.png);
@@ -44,6 +45,11 @@ html{
     text-decoration: none;
     margin-inline: 5%;
     text-shadow: 1px 1px 2px black;
+}
+
+.header_link:hover{
+    transform: scale(1.01);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .main_desc{
