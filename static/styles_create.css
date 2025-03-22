@@ -1,53 +1,166 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 
-@import url("styles.css");
+/*l'ensemble*/
+body {   
+  height: 100vh;            
+  background-image: url("index_background.png");
+  background-attachment: fixed; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Rubik', sans-serif;
+  backdrop-filter: blur(3px);
+}
+
+
+/*la bar de retour vers acceuil*/
+.header{
+  padding: 65px 80px 40px;
+  font-family: 'Rubik', sans-serif;
+  font-weight:bolder;
+  font-style: italic;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+
+.header_link{
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+  margin-inline: 5%;
+  text-shadow: 5px 5px 10px black;
+}
+
+.create {
+  /*position de la box*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top:1%;
+  justify-content: center;
+
+  /*design de la box*/
+  background:rgba(255, 255, 255, 0.7);
+  padding: 140px 40px;
+  height: 500px;
+  border-radius: 10px;
+  border-left: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid rgba(255,255,255,0.3);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-align: center;
+}
 
 .create_title {
-    text-align: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    margin: 10px 0 30px 0;
-    font-size: 25px;
-    font-weight: 800;
-  }
-  .create{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 30%;
-    padding-right: 30%;
-    text-align: center;
-  }
-  .existant, .non_existant {
-    text-align: center;
-  }
-  
-  .create_form{
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .create {
-    width: 350px;
-    height: 500px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 7%;
-    display: flex;
-    justify-content: center;
-  }
-  .create_box{
-  margin-top: 1%;
-  display: flex;
-  justify-content: center;
-  }
-  .create_error{
-    font-size: 10px;
-    color: red;
-  }
+  font-size: 45px;
+  font-family: 'Rubik', sans-serif;
+  font-weight:bolder;
+  font-style: italic;
+  color: rgb(255, 255, 255);
+  text-decoration: none;  
+  margin-bottom: 60px;
+  text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.35);
+}
 
-  .create_succes{
-    font-size: 10px;
-    color: blue;
-  }
+
+.input {
+  /*les bars */
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  padding: 1.5rem;
+  width: 350px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  transition: all .3s;
+  margin-bottom: 2em; 
+  font-size: 15px;
+}
+
+/*l'ensemble des effets*/
+input:hover,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+
+::placeholder {
+  color: #494646;
+}
+
+
+.btn {
+  width: 15rem;
+  height: 2.3em;
+  margin: 0.5em;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+ }
+ 
+ button:hover {
+  color: black;
+ }
+ 
+ button:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ button:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }
+
+ .DéjaCompte{
+  margin-top: 30px;
+  color: rgba(0, 0, 0);
+  text-decoration: none;
+}
+
+.existant, .non_existant {
+  text-align: center;
+}
+
+.create_form{
+  font-family: 'Rubik', sans-serif;
+  font-weight:bolder;
+  font-style: italic;
+}
+
+.create_error{
+  font-size: 10px;
+  color: red;
+}
+
+.create_succes{
+  font-size: 10px;
+  color: blue;
+}

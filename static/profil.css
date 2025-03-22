@@ -1,8 +1,54 @@
-@import url("styles.css");
+*{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(213, 228, 228);
+    height: 100vh;            
+    background-image: url("index_background.png");
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(8px);
+}
+
+.header{
+    display: flex;
+    padding: 65px 80px 20px;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+.header_link1{
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    margin-inline: 5%;
+    text-shadow: 5px 5px 10px black;
+}
+
+.header_link1:hover{
+    transform: scale(1.01);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header_link2{
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    margin-inline: 5%;
+    text-shadow: 5px 5px 10px black;
+}
+
+.header_link2:hover{
+    transform: scale(1.01);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .stats-container {
@@ -15,7 +61,7 @@ body{
 }
 
 .stat-card {
-    background-color: #84ff9e;
+    background:rgba(255, 255, 255, 0.7);
     border-radius: 16px;
     padding: 20px;
     text-align: center;
@@ -44,7 +90,24 @@ body{
     height: 150px; 
     border-radius: 50%; 
     object-fit: cover; 
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    border: 2px solid white;
+
+}
+
+.nomProfil{
+    font-family: 'Orbitron', sans-serif;
+    font-weight:bolder;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px white;
+}
+
+.niveauProfil{
+    font-family: 'Orbitron', sans-serif;
+    font-weight:bolder;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px white;
 }
 
 .edit_profile{

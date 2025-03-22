@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*l'ensemble*/
+body {
+    /*les deux lignes suivantes ne marches pas*/
+    justify-content: center; 
+    align-items: center;      
+    height: 100vh;            
+    background-image: url("../index_background.png");
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Rubik', sans-serif;
+    backdrop-filter: blur(3px);
+}
+
+
+/*la bar de retour vers acceuil*/
+.header{
+    padding: 65px 80px 500px;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+}
+
+.header_link{
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    margin-inline: 5%;
+    text-shadow: 5px 5px 10px black;
+}
+
+.header_link:hover{
+    transform: scale(1.01);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/*partie login*/
+.login {
+    /*position de la box*/
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    margin-top:1%;
+    justify-content: center;
+
+    /*design de la box*/
+    background:rgba(255, 255, 255, 0.7);
+    padding: 80px;
+    height: 500px;
+    border-radius: 10px;
+    border-left: 2px solid rgba(255,255,255,0.3);
+    border-top: 2px solid rgba(255,255,255,0.3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+}
+
+.login_form{
+    /*text*/
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+}
+
+
+.titleConnextion{
+    /*titre connexion K*/
+    font-size: 50px;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-bottom: 60px;
+    text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+input {
+    /*les bars */
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    padding: 1.5rem;
+    width: 350px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    transition: all .3s;
+    margin-bottom: 1em;
+    font-size: 15px;
+  }
+
+  /*l'ensemble des effets*/
+input:hover,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+
+::placeholder {
+  color: #494646;
+}
+
+/*button de connexion*/
+.btn {
+    width: 15rem;
+    height: 2.3em;
+    margin: 0.5em;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+   
+   button:hover {
+    color: black;
+   }
+   
+   button:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+   
+   button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
+
+.pasDeCompte{
+    margin-top: 60px;
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+}

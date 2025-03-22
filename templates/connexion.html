@@ -2,41 +2,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Accueil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='connexion.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/connexion.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 
 
 <body>
-        <div class="background">
+        <div class="header">
+            <a class="header_link" href="/">RETOUR À L'ACCUEIL</a>
+        </div>
 
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Retour à l'accueil</a></li>
-        </ul>
-
-    </nav>
-
-
-    <main class="login_box">
         <div class="login">
-            <div class="connexion">
-            <p class="titleConnextion">Connexion <br> K</p>
                 <form method="post" class="login_form">
+                    <p class="titleConnextion">Connexion <br> K</p>
                     <div class="login_form">
                         <input type="email" id="email" name="email" class="input" autocomplete="off" placeholder="Entrez votre email" required>
                     </div>
                     <div>
                         <input type="password" id="password" name="password" class="input" autocomplete="off" placeholder="Entrez votre mot de passe" required>
                     </div>
-                        <span class="page-link-label">Mot de passe oublié ?</span>
+                        <!--<span class="page-link-label">Mot de passe oublié ?</span>!-->
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                             {% for category, message in messages %}
@@ -49,14 +39,11 @@
                         {% endif %}
                     {% endwith %}
                     <p></p>
-                        <button type="submit" class="form-btn">Se connecter</button>
-                    <div><p class="sign-up-label">Pas de compte ? <span class="sign-up-link"><a href="create">S'inscrire</a></span></p></div>
+                        <button type="submit" class="btn">Se connecter</button>
+                    <div class="pasDeCompte"><p class="sign-up-label">Pas de compte ? <span class="sign-up-link"><br><a href="create">S'inscrire</a></span></p></div>
                     
                 </form>
-            </div>
         </div>
-        
-    </main>
-    </div>
 
 </body>
+</html>
