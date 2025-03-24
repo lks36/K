@@ -14,12 +14,12 @@
   }
   
   .regle {
-    background-color: rgb(0, 0, 0);
-    opacity: 40%;
+    background-color:black;
+    opacity: 100%;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
   }
 
   .text{

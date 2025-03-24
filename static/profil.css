@@ -38,19 +38,6 @@ body{
     text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.header_link2{
-    margin-top: 10px;
-    color: white;
-    text-decoration: none;
-    margin-inline: 5%;
-    text-shadow: 5px 5px 10px black;
-}
-
-.header_link2:hover{
-    transform: scale(1.01);
-    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
 .stats-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
@@ -82,7 +69,7 @@ body{
     justify-content: center; 
     text-align: center; 
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 15   px;
 }
 
 .profile-container img {
@@ -90,10 +77,14 @@ body{
     height: 150px; 
     border-radius: 50%; 
     object-fit: cover; 
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
     border: 2px solid white;
 
+}
+
+.profile-container h1{
+    color: white;
 }
 
 .nomProfil{
@@ -139,4 +130,10 @@ body{
 
 .edit_button:hover{
     box-shadow: 4px 4px 15px rgb(133, 206, 184);
+}
+
+.level{
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

@@ -9,17 +9,11 @@
 </head>
 <body>
     <div class="background">
-    <nav class="navbar">
-        <div>
-            <ul>
-                <li><a href="/profil">Retour au profil</a></li>
-                
-            </ul>
-        </div>
-    </nav>
+ 
+    
     <form method=post enctype=multipart/form-data onchange="loadFile(event)">
     <div class="content">
-    <div class="profile-container">
+    <div class="profile-container-edit">
             <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg" id="output">
             <div class="icon_edit_container">
                 <h2>Modifier la photo de profil</h2>
@@ -34,6 +28,12 @@
         <input type="submit" class="edit_button" onclick="location.href='edit_profile'" value="Sauvegarder les modifications"></input>
     </div>
     </form>
+    <div class="container">
+        <div class="header_edit">
+            <a class="header_link" href="/profil">Retour au profil</a>
+            
+        </div>
+    </div>
 </div>
 </div>
 </body>

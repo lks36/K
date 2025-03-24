@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Joueur</title>
+    <title>Profil</title>
     <link rel="stylesheet" href="{{url_for('static', filename='profil.css')}}">
 </head>
 <body>
+<div class="background">
+        <div class="container_main">
+            <div class="header">
 
-    <div class="header">
-        <a class="header_link1" href="/">RETOUR À L'ACCUEIL</a>
-        {% if session['email'] %}
-                    <a  class="header_link2" href="disconnect">DECONNEXION</a>
-                {% else %}
-                    <a  class="header_link2" href="connexion">CONNEXION</a>
-                {% endif %}
-    </div>
-    
+                <a class="header_link1" href="/">ACCUEIL</a>
+                <a class="header_link1" href="howtoplay">COMMENT JOUER ?</a>
+                <a class="header_link1" href="disconnect">DECONNEXION</a>
+              
+                
+            </div>
+        </div>
+
     <div class="content">
     <div class="profile-container">
             <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg">
 
-            <p class="nomProfil">{{data["username"]}}</h1>
-            <p class="niveauProfil">NIVEAU {{data["niveau"]}}</p>
+            <h1>{{data["username"]}}</h1>
+            <p class="level">NIVEAU {{data["niveau"]}}</p>
     </div>
      
     <div class="stats-container">
             <div class="stat-card">
-                <h3>PARTIES TERMINÉES</h3>
-                <p>{{data["nb_parties"]}}</p>
+                <h3 class="lvl">PARTIES TERMINÉES</h3>
+                <p class="lvl">{{data["nb_parties"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>RANG GLOBAL</h3>
-                <p>{{data["rang"]}}</p>
+                <h3 class="lvl">RANG GLOBAL</h3>
+                <p class="lvl">{{data["rang"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>RATIO VICTOIRES CLASSIQUE</h3>
-                <p>{{data["nb_victoires_classique"]}}</p>
+                <h3 class="lvl">RATIO VICTOIRES CLASSIQUE</h3>
+                <p class="lvl">{{data["nb_victoires_classique"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>NOMBRE VICTOIRES TOURNOI</h3>
-                <p>{{data["nb_victoires_tournois"]}}</p>
+                <h3 class="lvl">NOMBRE VICTOIRES TOURNOI</h3>
+                <p class="lvl">{{data["nb_victoires_tournois"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>SCORE TOTAL</h3>
-                <p>{{data["score_total"]}}</p>
+                <h3 class="lvl">SCORE TOTAL</h3>
+                <p class="lvl">{{data["score_total"]}}</p>
             </div>
             <div class="stat-card">
-                <h3>AUTRE STATS</h3>
-                <p>?</p>
+                <h3 class="lvl">AUTRE STATS</h3>
+                <p class="lvl">?</p>
             </div>
             
         </div>
