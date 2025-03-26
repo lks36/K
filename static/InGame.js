@@ -23,3 +23,16 @@
         socketio.emit("message", { message: msg });
         msgInput.value = "";
       }
+
+var input = document.getElementById("monMessage");
+
+input.addEventListener("keypress", function(event) {
+  console.log('enter');
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("send_button").click();
+  }
+}); 
