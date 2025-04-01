@@ -7,8 +7,8 @@
 body{
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(213, 228, 228);            
-    background-image: url("index_background.png");
+    background-color: rgb(213, 228, 228);  
+    background-image: url("../index_background.png");   
     background-attachment: fixed; 
     background-position: center;
     background-repeat: no-repeat;

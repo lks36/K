@@ -6,7 +6,7 @@
 /*l'ensemble*/
 body {   
   height: 100vh;            
-  background-image: url("index_background.png");
+  background-image: url("../index_background.png");
   background-attachment: fixed; 
   background-position: center;
   background-repeat: no-repeat;
