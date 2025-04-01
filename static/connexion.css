@@ -1,0 +1,105 @@
+@import url("styles.css");
+
+body{
+    background-color: rgb(9, 23, 71);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.background{
+    height: 100%;
+    /* The image used */
+    background-image: url("index_background.png");
+    opacity: 100%;
+    /* Set a specific height */
+    min-height: 10px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    background-color: rgb(0, 0, 0);
+}  
+
+.navbar ul{
+    list-style-type: none;
+    background-color: hsl(0, 0%, 0%);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navbar a{
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    margin: 0 15px;
+}
+
+.navbar a:hover{
+    background-color: hsl(20, 4%, 17%);
+}
+
+.navbar li{
+    float: left;
+}
+
+.login_box{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    width: 400px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 7%;
+    justify-content: center;
+    display:flex;
+    align-items: center;
+    padding-left: 30%;
+    padding-right: 30%;
+    text-align: center;
+  }
+
+
+.login_form{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.connexion{
+    font-size: 100%;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    color: black;
+    text-decoration: none;
+}
+
+.titleConnextion{  
+    padding-bottom: 20%;
+    font-size: 200%;
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+    color: black;
+    text-decoration: none;
+}

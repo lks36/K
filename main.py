@@ -62,7 +62,7 @@ def leaderboard():
 @app.route("/disconnect")
 def disconnect():
     session.clear()
-    return render_template("./disconnect.html")
+    return render_template("./index.html")
 
 @app.route("/howtoplay")
 def howtoplay():
