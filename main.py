@@ -30,7 +30,7 @@ def index():
     lb = get_leaderboard()
     print(session)
     if session and session["id"]:
-        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=str(session["id"]))  
+        return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar=get_user_avatar(session["id"]))  
     else:
         return render_template("./index.html", leaderboard=lb, iter_liste=range(len(lb)), avatar="default")
 
@@ -74,6 +74,7 @@ def profil():
         return render_template("./profil.html", data=get_list_data(session['username']), avatar=get_user_avatar(session["id"]))
     else:
         return redirect("/connexion")
+
 @app.route("/startplaying")
 def startplaying():
     return render_template("./startplaying.html")
@@ -189,6 +190,13 @@ def edit_profile():
             if file and allowed_file(file.filename):
                 filename = f"{session['id']}.jpg"
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                con = sqlite3.connect("./database/database.db")
+                cur = con.cursor()
+                sqlreq = f"UPDATE users SET avatar = {session['id']} WHERE id = {session['id']}"
+                cur.execute(sqlreq)
+                con.commit()
+                con.close()
+
                 return redirect("/profil")
         return render_template("./edit_profile.html", userid=session['id'])
     else:
