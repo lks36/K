@@ -11,8 +11,7 @@ def set_user_avatar(userid:int, avatar:str):
         con = sqlite3.connect("./database/database.db")
         cur = con.cursor()
         sqlreq = f"UPDATE users SET avatar = '{avatar}' WHERE id={userid}"
-        cur.execute(sqlreq)
-        con.commit()
+        res = cur.execute(sqlreq).fetchone()[0]
         con.close()
     except Exception as erreur:
         print("Erreur dans set_user_avatar() : ", erreur)

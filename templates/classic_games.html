@@ -4,7 +4,7 @@
 <head>
     <title>Accueil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='classic_games.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 
 <body>
@@ -12,11 +12,8 @@
     <main>
         <div>
             <h2> Parties Disponibles </h2>
-            {% for game in gamelist %}
-                <div class="partie">
-                <p class="theme"> Theme : "{{themes[game.thematiqueID]}}"</p> 
-                <button class="join" onclick=onclick=location.href="/game/{{game.id}}"> rejoindre </button>
-                </div>
+            {% for i in iter_liste %}
+                <p> Host : {{gamelist[i][1]}}, Nom : {{gamelist[i][2]}}, Maxjoueurs : {{gamelist[i][4]}}, Status : {{gamelist[i][3]}}</p>
             {% endfor %}
         </div>
     </main>
