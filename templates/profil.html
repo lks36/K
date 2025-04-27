@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='/css/profil.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='profil.css')}}">
 </head>
 <body>
 <div class="background">
         <div class="container_main">
             <div class="header">
+
                 <a class="header_link1" href="/">ACCUEIL</a>
-                <a class="header_link1" href="disconnect">DECONNEXION</a>   
+                <a class="header_link1" href="howtoplay">COMMENT JOUER ?</a>
+                <a class="header_link1" href="disconnect">DECONNEXION</a>
+              
+                
             </div>
         </div>
 
     <div class="content">
     <div class="profile-container">
-            <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg">
+            <img class="profile_icon" src="/static/avatars/{{avatar}}.jpg">
 
             <h1>{{data["username"]}}</h1>
             <p class="level">NIVEAU {{data["niveau"]}}</p>
