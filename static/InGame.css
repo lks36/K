@@ -15,10 +15,6 @@ body{
     background-size: cover;
 }
 
-h3{
-    font-family: 'Rubik', sans-serif;
-}
-
 .header{
     font-family: 'Rubik', sans-serif;
     font-weight:bolder;
@@ -203,114 +199,6 @@ button:hover {
 .message{
     color: black;
     list-style-type:none;
-    width: 100%;
-    font-size: auto;
-    -moz-hyphens:auto;
-    -ms-hyphens:auto;
-    -webkit-hyphens:auto;
-    hyphens:auto;
-    word-wrap:break-word;
 }
 
 
-.message_list{
-    width: 98%;
-    display: block;
-    list-style: none;
-    padding-left: 0;
-    list-style-position: inside;
-    justify-content: center;
-}
-
-.message_holder{
-    width: 80%;
-}
-
-
-.message_container{
-    display: flex;
-    width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
-    padding: 3px;
-    background-color: hsl(143, 100%, 86%);
-    border-radius: 20px;
-}
-
-
-
-.message_content{
-    display: flex;
-}
-.pseudo{
-    color:black;
-    margin-right: 10px;
-    background-color: aliceblue;
-    border-radius: 10%;
-    height: 30px;
-    padding-inline: 10px;
-    padding-block: 10px;
-}
-
-.message_container1{
-    display: flex;
-    width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
-    padding: 3px;
-    background-color: hsl(205, 100%, 86%);
-    border-radius: 20px;
-}
-
-.message_container2{
-    display: flex;
-    width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
-    padding: 3px;
-    background-color: hsl(270, 100%, 85%);
-    border-radius: 20px;
-}
-
-.avatar{
-    margin-top: 12px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 50px; 
-    height: 50px; 
-    border-radius: 50%; 
-    object-fit: cover;
-}
-
-.buttons{
-    display: flex;
-}
-
-.reply{
-    margin-left: 30px;
-    margin-top:-5px;
-    color:white;
-    margin-bottom: -10px;
-    height: 20px;
-    width: 70px;
-    background-color: rgb(221, 92, 92);
-}
-
-.like{
-
-    margin-left: 10px;
-    margin-top:-5px;
-    color:white;
-    margin-bottom: -10px;
-    height: 20px;
-    width: 80px;
-    background-color: rgb(221, 92, 92);
-}
-
-.origin{
-    margin-left:10px;
-    text-decoration: none;
-    font-size: 10px;
-    font-style: italic;
-    font-family: 'Rubik', sans-serif;
-}

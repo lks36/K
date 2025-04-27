@@ -4,7 +4,7 @@
 <head>
     <title>Creation de Compte</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles_create.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/styles_create.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
                     {% endif %}
                     </div>
                     <p></p>
-                        <button type="submit" class="btn">Créer</button>
+                        <button type="submit" class="btn" href="connexion">Créer</button>
                     <div class="DéjaCompte"><p class="sign-up-label">Deja un compte ? <br><span class="sign-up-link"><a href="connexion">Se Connecter</a></span></p></div>
                     
                 </form>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Joueur</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='edit_profile.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/edit_profile.css')}}">
     <script src="{{url_for('static', filename='edit_profile.js')}}"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <form method=post enctype=multipart/form-data onchange="loadFile(event)">
     <div class="content">
     <div class="profile-container-edit">
-            <img class="profile_icon" src="/static/avatars/{{avatar}}.jpg" id="output">
+            <img class="profile_icon" src="/static/avatars/{{session['id']}}.jpg" id="output">
             <div class="icon_edit_container">
                 <h2>Modifier la photo de profil</h2>
                 <div class="icon_uploader_container">
