@@ -4,45 +4,43 @@
 <head>
     <title>Règles du jeu - K</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/regles.css')}}">
-    <script src="{{url_for('static', filename='type.js')}}" defer></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='regles.css')}}">
 </head>
 
 <body >
-    <div class="background-blur"></div><!--ne pas touché-->
-    <div class="container_main">
-        <div class="header">
-            <a class="header_link1" href="/">RETOUR À L'ACCUEIL</a>
-        </div>
-    </div>
-
+    <div class="background">
     <div class="container">
-        <div class="q1 question">K, c'est quoi ?</div>
-        <div class="container_type1 type">K est un jeu en ligne qui permet au joueur de tester et d'améliorer leur éloquence de manière ludique.</div>
-        
-        <div class="q2 question">Règles du mode de jeu classique</div>
-        <div class="container_type2 type">Le joueur choisit son thème de débat, puis rejoint d'autres joueurs qui ont choisi la même catégorie. 
-        
-        Un sujet de débat leur est présenté et le camp à défendre est choisi aléatoirement.
-        
-        La partie se joue en 3 contre 3.
+    <header>
+        <h2>K, c'est quoi ?</h2>
+        <p>K est un jeu en ligne qui permet au joueur de tester et d'améliorer leur éloquence de manière ludique.</p>
+    </header>
 
-        Les joueurs exposent leurs arguments et tentent de convaincre le plus de spectateurs possible.
+    <section id="regles-classique" class="regle">
+        <div class="text">
+        <h2>Règles du mode de jeu classique</h2>
+        <p>Le joueur choisit son thème de débat, puis rejoint d’autres joueurs qui ont choisi la même catégorie. Un sujet de débat leur est présenté et le camp à défendre est choisi aléatoirement.</p>
+        <ul>
+            <li>La partie se joue en 3 contre 3.</li>
+            <li>Les joueurs exposent leurs arguments et tentent de convaincre le plus de spectateurs possible.</li>
+            <li>Les spectateurs interagissent avec le débat et votent pour l’équipe la plus convaincante.</li>
+            <li>La partie se termine lorsque le temps du débat est écoulé.</li>
+            <li>Gagner une partie rapporte des points d'expérience et de rang.</li>
+        </ul>
+        </div>
+    </section>
 
-        Les spectateurs interagissent avec le débat et votent pour l'équipe la plus convaincante.
-
-        La partie se termine lorsque le temps du débat est écoulé.
-
-        Gagner une partie rapporte des points d'expérience et de rang.</div>
-    
-        <div class="q3 question">Règles du mode de jeu tournoi</div>
-        <div class="container_type3 type">Dans ce mode, 16 joueurs s'affrontent dans un arbre de tournoi.
-
-        Chaque phase oppose les joueurs en 1 contre 1 sur un même sujet de débat.
-
-        Les vainqueurs avancent dans le tournoi jusqu'à la finale.
-
-        Le gagnant du tournoi reçoit des points pour le classement global.</div>
+    <section id="regles-tournoi" class="regle">
+        <div class="text">
+        <h2>Règles du mode de jeu tournoi</h2>
+        <p>Dans ce mode, 16 joueurs s’affrontent dans un arbre de tournoi.</p>
+        <ul>
+            <li>Chaque phase oppose les joueurs en 1 contre 1 sur un même sujet de débat.</li>
+            <li>Les vainqueurs avancent dans le tournoi jusqu’à la finale.</li>
+            <li>Le gagnant du tournoi reçoit des points pour le classement global.</li>
+        </ul>
     </div>
+    </section>
+</div>
+</div>
 </body>
 </html>

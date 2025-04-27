@@ -1,4 +1,38 @@
-@import url("styles.css");
+@import url("style_main.css");
+body{
+    height: 900px;
+    /* The image used */
+    background-image: url("index_background.png");
+    opacity: 100%;
+    /* Set a specific height */
+    min-height: 10px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p {
+    padding-top: 10px;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.title{
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(255, 255, 255);
+}
+.review{
+    display: flex;
+    justify-content:center;
+}
+
+
 
 body{
     height: 900px;
@@ -228,16 +262,17 @@ button:hover {
 
 
 .message_container{
-    display: flex;
+    display: block;
     width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
+    margin-bottom:10px;
     padding: 3px;
-    background-color: hsl(143, 100%, 86%);
+    background-color: hsl(232, 15.90%, 55.70%);
     border-radius: 20px;
 }
 
-
+.message_container_head{
+    display:flex;
+}
 
 .message_content{
     display: flex;
@@ -252,26 +287,6 @@ button:hover {
     padding-block: 10px;
 }
 
-.message_container1{
-    display: flex;
-    width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
-    padding: 3px;
-    background-color: hsl(205, 100%, 86%);
-    border-radius: 20px;
-}
-
-.message_container2{
-    display: flex;
-    width: 100%;
-    justify-content:flex-start;
-    margin: 10px;
-    padding: 3px;
-    background-color: hsl(270, 100%, 85%);
-    border-radius: 20px;
-}
-
 .avatar{
     margin-top: 12px;
     margin-left: 10px;
@@ -280,37 +295,4 @@ button:hover {
     height: 50px; 
     border-radius: 50%; 
     object-fit: cover;
-}
-
-.buttons{
-    display: flex;
-}
-
-.reply{
-    margin-left: 30px;
-    margin-top:-5px;
-    color:white;
-    margin-bottom: -10px;
-    height: 20px;
-    width: 70px;
-    background-color: rgb(221, 92, 92);
-}
-
-.like{
-
-    margin-left: 10px;
-    margin-top:-5px;
-    color:white;
-    margin-bottom: -10px;
-    height: 20px;
-    width: 80px;
-    background-color: rgb(221, 92, 92);
-}
-
-.origin{
-    margin-left:10px;
-    text-decoration: none;
-    font-size: 10px;
-    font-style: italic;
-    font-family: 'Rubik', sans-serif;
 }

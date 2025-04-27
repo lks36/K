@@ -1,0 +1,28 @@
+@import url("styles.css");
+
+
+.background{
+  background-image: url("index_background.png");
+  height: 100%;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .regle {
+    background-color:black;
+    opacity: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .text{
+    color: white;
+    opacity: 100%;
+  }

@@ -3,7 +3,7 @@ import time
 import sqlite3
 from matchmaking import *
 from profil import *
-
+from partie import *
 
 def get_id_by_email(email:str)->int:
     try:
@@ -193,3 +193,16 @@ def creation(username,email,password):
         return render_template("create.html", error=erreur)
     finally:
         con.close()
+
+def add_score(player:Player, gain):
+    try:
+        con = sqlite3.connect("./database/database.db")
+        cur = con.cursor()
+        score = int(round(int(cur.execute(f"SELECT score FROM leaderboard WHERE id = {player.id}").fetchone()[0], 0)))
+        cur.execute(f"UPDATE leaderboard SET score = {score+gain} WHERE id = {player.id}")
+        con.commit()
+        con.close()
+        return True
+    except Exception as e:
+        print(e)
+        return False

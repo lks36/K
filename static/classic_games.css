@@ -1,0 +1,48 @@
+@import url("styles.css");
+@import url("style_main.css");
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(213, 228, 228);
+    height: auto;            
+    background-image: url("index_background.png");
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    color:white;
+}
+.partie{
+    display: flex;
+}
+.join{
+    font-family: 'Rubik', sans-serif;
+    font-weight:bolder;
+    font-style: italic;
+
+
+    border: 5px solid hsl(288, 51%, 51%);
+    background-color: hsl(288, 51%, 51%);
+    border-radius: 0.4em;
+    cursor: pointer;
+    padding-inline: 20px;
+    padding-block: 5px;
+    transition: all ease-in-out 0.2s;
+    font-size: 10px;
+    
+    color: white;
+    box-shadow: 4px 4px 15px rgb(29, 29, 29);
+}
+
+
+.join:hover{
+    box-shadow: 4px 4px 15px rgb(156, 35, 130);
+}
+
+
+
+.theme{
+
+}
