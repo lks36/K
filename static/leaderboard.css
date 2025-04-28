@@ -1,7 +1,11 @@
 @import url("styles.css");
 
 body{
-    background-color: rgb(9, 23, 71);
+    background-image: url("index_background.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 html{
@@ -9,7 +13,6 @@ html{
 }
 
 .container_main{
-    padding: 65px 80px 160px;
     background-size: cover;
     animation-timeline: scroll();
 }
@@ -21,23 +24,107 @@ html{
     display: flex;
     justify-content: center;
     font-size: 20px;
+    padding-top: 30px;
 }
 
 .header_link{
+    margin-top: 10px;
     color: white;
     text-decoration: none;
     margin-inline: 5%;
     text-shadow: 1px 1px 2px black;
 }
 
+.header_link:hover{
+    transform: scale(1.01);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.profile_button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
 .leaderboard_container{
-    margin: 10%;
+    background: linear-gradient(to top, rgba(0, 28, 120, 0.315), rgba(255, 255, 255, 0));
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    
+    padding: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .leaderboard{
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(9, 23, 71);
     color:white;
-    font-family: 'Rubik', sans-serif;;
+    font-family: 'Rubik', sans-serif;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.leaderboard_title {
+    color: white;
+    text-decoration: none;
+    text-shadow: 3px 3px 5px rgb(22, 52, 148), -3px -3px 5px rgb(103, 53, 165);
+    font-size: 40px;
+}
+
+.top {
+    color: white;
+    width: 90%;
+    justify-content: center;
+}
+
+.top1 {
+    margin-inline: 10px;
+    font-size: 25px;
+}
+
+
+.top2 {
+    margin-top: 5%;
+    font-size: 20px;
+    margin-inline: 10px;
+}
+
+
+
+.bottom_top{
+    background-image: linear-gradient(135deg, rgb(73, 101, 191),  rgb(103, 53, 165));
+    box-shadow: 2px 2px 15px rgb(15, 45, 142);
+    text-shadow: 3px 3px 5px rgb(22, 52, 148);
+    display: flex;
+    width: 90%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    align-items: center;
+    transition: all ease-in-out 0.2s;
+}
+
+.bottom_top:hover {
+    box-shadow: 2px 2px 15px rgb(98, 35, 180);
+}
+
+.rank {
+    font-size: 20px;
+}
+.user_name {
+    margin-inline: 40px;
+    font-size: 15px;
+}
+
+.score {
+    margin-left: auto;
+    font-size: 15px;
 }
