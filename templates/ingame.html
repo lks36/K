@@ -15,27 +15,32 @@
     </div>
     <div class="container_main">
 
-        <h1>ICI LE THEME DU DEBAT</h1>
-
+        <h1>Theme : {{themes[partie.thematiqueID]}}</h1>
+        <h3 id="talking">Lancement de la partie... Veuillez patienter quelques instants.</h3>
+        <h3 id="timer"></h3>
+        <h3 id="tour"></h3>
         <div class="box">
             <div class="team1_container">
                 <h3>EQUIPE 1</h3>
-                <hr class="line">
-                <p>joueur 1 lvl</p>
-                <p>joueur 2 lvl</p>
-                <p>joueur 3 lvl</p>
+                <hr class="line" id="equipe1">
             </div>
 
             <div class="chat">
                     <div class="chat-box">
                         <div id="message_holder">
-                            <ul id="message_list"></ul>
-
+                            <ul id="message_ul" class="message_list"><li class="message">
+                                <div class="message_container" id=0>
+                                <img class="avatar" src="/static/avatars/default.jpg">
+                                <p class="message">Bienvenue dans le débat !</p>
+                                </div>
+                            </li>
+                        </ul>
+                                
 
                         </div>
                     </div>
                 
-                <div class="bottom_chat">
+                <div id="bottom" class="bottom_chat">
                     <div class="form" >
                         <input id="monMessage" type="text" class="message" placeholder="Écrire un message..." autocomplete="off">
                         <button id="send_button" onclick="sendMessage()"> <img src="/static/send_messsage.png" alt="Envoyer"></button>
@@ -45,10 +50,7 @@
     
             <div class="team2_container">
                 <h3>EQUIPE 2</h3>
-                <hr class="line">
-                <p>joueur 1 lvl</p>
-                <p>joueur 2 lvl</p>
-                <p>joueur 3 lvl</p>
+                <hr class="line" id="equipe2">
             </div>
     
         </div>
@@ -61,10 +63,18 @@
     <script src="{{ url_for('static', filename='InGame.js') }}"></script>
 
     <script>
-    var socketio = io();
+    sessionid =  {{session["id"]}};
+
     socketio.on('message', function(message){
-        console.log("OK");
-        createChatItem(message.message, message.sender)
+        if(message.event == "message"){
+            createChatItem(message.id, message.message, message.sender, message.date, message.equipe, message.avatar, message.rep);
+        }
+        else if (message.event == "update"){
+            updateInfos(message.id, message.status, message.talking, message.equipe1, message.equipe2, message.timer, message.round);
+        }
+        else if(message.event == "end"){
+            window.location.href = "/game/{{room}}/game_review"
+        }
     });
     </script>
 </body>
